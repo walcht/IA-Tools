@@ -1,0 +1,230 @@
+@ARTICLE{dxr_toolkit,
+  author={Sicat, Ronell and Li, Jiabao and Choi, Junyoung and Cordeil, Maxime and Jeong, Won-Ki and Bach, Benjamin and Pfister, Hanspeter},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={DXR: A Toolkit for Building Immersive Data Visualizations}, 
+  year={2019},
+  volume={25},
+  number={1},
+  pages={715-725},
+  doi={10.1109/TVCG.2018.2865152}
+}
+
+@ARTICLE{uplift_toolkit,
+  author={Ens, Barrett and Goodwin, Sarah and Prouzeau, Arnaud and Anderson, Fraser and Wang, Florence Y. and Gratzl, Samuel and Lucarelli, Zac and Moyle, Brendan and Smiley, Jim and Dwyer, Tim},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Uplift: A Tangible and Immersive Tabletop System for Casual Collaborative Visual Analytics}, 
+  year={2021},
+  volume={27},
+  number={2},
+  pages={1193-1203},
+  doi={10.1109/TVCG.2020.3030334}
+}
+
+
+
+
+// Proposes a collaborative, IA tool built in Unity3D and argues that it is universally accessible and easy-to-use.
+// Proposes and easy-to-use collaborative IA framework build on top of DXR which itself is built on top of the Unity3D game engine.
+// Unimpressive results. Provides little customization and is vendor locked (uses 3rd party provider for muliplayer client-server library)
+@InProceedings{10.1007/978-3-030-77961-0_50,
+  author="Garrido, Daniel
+  and Jacob, Jo{\~a}o
+  and Silva, Daniel Castro",
+  editor="Paszynski, Maciej
+  and Kranzlm{\"u}ller, Dieter
+  and Krzhizhanovskaya, Valeria V.
+  and Dongarra, Jack J.
+  and Sloot, Peter M. A.",
+  title="Building a Prototype for Easy to Use Collaborative Immersive Analytics",
+  booktitle="Computational Science -- ICCS 2021",
+  year="2021",
+  publisher="Springer International Publishing",
+  address="Cham",
+  pages="628--641",
+  isbn="978-3-030-77961-0"
+}
+
+// In-place (not remote) collaboration
+@ARTICLE{9222346,
+  author={Lee, Benjamin and Hu, Xiaoyun and Cordeil, Maxime and Prouzeau, Arnaud and Jenny, Bernhard and Dwyer, Tim},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Shared Surfaces and Spaces: Collaborative Data Visualisation in a Co-located Immersive Environment}, 
+  year={2021},
+  volume={27},
+  number={2},
+  pages={1171-1181},
+  doi={10.1109/TVCG.2020.3030450}
+}
+
+// Remote collaboration - case study: GeoSpatial data (since I like geospatial stuff, I couldn't resist to include this...)
+@INPROCEEDINGS{8943760,
+  author={Mahmood, Tahir and Fulmer, Willis and Mungoli, Neelesh and Huang, Jian and Lu, Aidong},
+  booktitle={2019 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)}, 
+  title={Improving Information Sharing and Collaborative Analysis for Remote GeoSpatial Visualization Using Mixed Reality}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={236-247},
+  doi={10.1109/ISMAR.2019.00021}
+}
+
+
+// IATK tool. Github repo: https://github.com/MaximeCordeil/IATK
+// First glance at GitHub code, it looks portable, allows conventional out-of-the-box data visualization techniques (subplots, 2D and 3D scatterplots, 2D and 3D bar charts). However, I assume that it doesn't allow for advanced visualization techniques (aka you will feel like fighting the framework when implementing something out of the ordinary)
+// repo is somewhat dead
+@inproceedings{cordeil2019iatk,
+  title={IATK: An Immersive Analytics Toolkit},
+  author={Cordeil, Maxime and Cunningham, Andrew and Bach, Benjamin and Hurter, Christophe and Thomas, Bruce H and Marriott, Kim and Dwyer, Tim},
+  booktitle={2019 IEEE Conference on Virtual Reality and 3D User Interfaces (VR)},
+  pages={200--209},
+  year={2019},
+  organization={IEEE}
+}
+
+// WebVR-based framework; seems extremely interesting since I know, from first hand, the importance of visualization portabiliy (i.e. runs everywhere)
+// Github repo: https://github.com/vriajs/vria
+// repo pretty much dead...
+// Cites = TODO
+@ARTICLE{8954824,
+  author={P. W. S. {Butcher} and N. W. {John} and P. D. {Ritsos}},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  title={VRIA: A Web-based Framework for Creating Immersive Analytics Experiences},
+  year={2020},
+  volume={},
+  number={},
+  pages={1-1},
+}
+
+// Poor customization support, a fixed set of visualization methods, dead repo... Not state-of-the-art but maybe still interesting...
+@inproceedings{Cordeil:2017:IIA:3126594.3126613,
+  author = {Cordeil, Maxime and Cunningham, Andrew and Dwyer, Tim and Thomas, Bruce H. and Marriott, Kim},
+  title = {ImAxes: Immersive Axes As Embodied Affordances for Interactive Multivariate Data Visualisation},
+  booktitle = {Proceedings of the 30th Annual ACM Symposium on User Interface Software and Technology},
+  series = {UIST '17},
+  year = {2017},
+  isbn = {978-1-4503-4981-9},
+  location = {Qu&#233;bec City, QC, Canada},
+  pages = {71--83},
+  numpages = {13}, 
+  url = {http://doi.acm.org/10.1145/3126594.3126613},
+  doi = {10.1145/3126594.3126613},
+  acmid = {3126613},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  keywords = {immersion, immersive analytics, immersive visualization, information visualization, multidimensional data visualization, virtual reality},
+}
+
+// Very interesting
+// proposes a tool for transfering simple 2D visualizations to immersive AR visualizations and vice-versa. Topic is interesting because of it's applicability importance; that is, in a real scenarion not everyone will have access to the relatively expensive VR\AR hardware.
+@INPROCEEDINGS{9974396,
+  author={Seraji, Mohammad Rajabi and Stuerzlinger, Wolfgang},
+  booktitle={2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, 
+  title={XVCollab: An Immersive Analytics Tool for Asymmetric Collaboration across the Virtuality Spectrum}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={146-154},
+  doi={10.1109/ISMAR-Adjunct57072.2022.00035}
+}
+
+// Transitions between conventional 2D and AR visualizations
+@INPROCEEDINGS{9974239,
+  author={Seraji, Mohammad Rajabi and Stuerzlinger, Wolfgang},
+  booktitle={2022 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)}, 
+  title={HybridAxes: An Immersive Analytics Tool With Interoperability Between 2D and Immersive Reality Modes}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={155-160},
+  doi={10.1109/ISMAR-Adjunct57072.2022.00036}
+}
+
+// Suggests a combination of speech recognition and gestures to author visualizations.
+Seems interesting but haven't read the full paper yet.
+@ARTICLE{10294315,
+  author={Batch, Andrea and Butcher, Peter W. S. and Ritsos, Panagiotis D. and Elmqvist, Niklas},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={Wizualization: A “Hard Magic” Visualization System for Immersive and Ubiquitous Analytics}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-11},
+  doi={10.1109/TVCG.2023.3326580}
+}
+
+// 3D spatial selection techniques (targetting particle data but potentially applicable to other domains...)
+@ARTICLE{10292508,
+  author={Zhao, Lixiang and Isenberg, Tobias and Xie, Fuqi and Liang, Hai-Ning and Yu, Lingyun},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={MeTACAST: Target- and Context-aware Spatial Selection in VR}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-11},
+  doi={10.1109/TVCG.2023.3326517}
+}
+
+// AR and VR for macroeconomics data visualization. What do participants actually report?
+@ARTICLE{8820171,
+  author={Batch, Andrea and Cunningham, Andrew and Cordeil, Maxime and Elmqvist, Niklas and Dwyer, Tim and Thomas, Bruce H. and Marriott, Kim},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={There Is No Spoon: Evaluating Performance, Space Use, and Presence with Expert Domain Users in Immersive Analytics}, 
+  year={2020},
+  volume={26},
+  number={1},
+  pages={536-546},
+  doi={10.1109/TVCG.2019.2934803}
+}
+
+// Inherent 3D data visualization using immersive analytics; Badminton tactics
+// Maybe interesting as it may provide insights into why IA might be better than conventioned 3D projections into 2D displays...
+@ARTICLE{9557225,
+  author={Chu, Xiangtong and Xie, Xiao and Ye, Shuainan and Lu, Haolin and Xiao, Hongguang and Yuan, Zeqing and Chen, Zhutian and Zhang, Hui and Wu, Yingcai},
+  journal={IEEE Transactions on Visualization and Computer Graphics}, 
+  title={TIVEE: Visual Exploration and Explanation of Badminton Tactics in Immersive Visualizations}, 
+  year={2022},
+  volume={28},
+  number={1},
+  pages={118-128},
+  doi={10.1109/TVCG.2021.3114861}
+}
+
+// VR Navigation techniques
+@INPROCEEDINGS{8533895,
+  author={Drogemuller, Adam and Cunningham, Andrew and Walsh, James and Cordeil, Maxime and Ross, William and Thomas, Bruce},
+  booktitle={2018 International Symposium on Big Data Visual and Immersive Analytics (BDVA)}, 
+  title={Evaluating Navigation Techniques for 3D Graph Visualizations in Virtual Reality}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={1-10},
+  doi={10.1109/BDVA.2018.8533895}
+}
+
+// AR navigation techniques. Paper too short unfortunately...
+@INPROCEEDINGS{10108859,
+  author={Zhou, Xiaoyan},
+  booktitle={2023 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)}, 
+  title={Designing Navigation Tool for Immersive Analytics in AR}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={975-976},
+  doi={10.1109/VRW58643.2023.00330}
+}
+
+@misc{web:vision_pro_unity,
+  author = {Apple},
+  title = {Bring your Unity VR app to a fully immersive space},
+  year = {2023},
+  note = {Last accessed 03 December 2023},
+  howpublished = {\url{https://developer.apple.com/videos/play/wwdc2023/10093/}}
+}
+
+@misc{unity:xr_packages,
+  author = {Unity3D},
+  title = {XR packages},
+  year = {2023},
+  note = {Last accessed 03 December 2023},
+  howpublished = {\url{https://docs.unity3d.com/Manual/xr-support-packages.html}}
+}

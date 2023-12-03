@@ -1,0 +1,167 @@
+% $Id: template.tex 11 2007-04-03 22:25:53Z jpeltier $
+\documentclass{vgtc}                          % final (conference style)
+
+\ifpdf%                                % if we use pdflatex
+  \pdfoutput=1\relax                   % create PDFs from pdfLaTeX
+  \pdfcompresslevel=9                  % PDF Compression
+  \pdfoptionpdfminorversion=7          % create PDF 1.7
+  \ExecuteOptions{pdftex}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg} % for pdflatex we expect .pdf, .png, or .jpg files
+\else%                                 % else we use pure latex
+  \ExecuteOptions{dvips}
+  \usepackage{graphicx}                % allow us to embed graphics files
+  \DeclareGraphicsExtensions{.eps}     % for pure latex we expect eps files
+\fi%
+
+%% it is recomended to use ``\autoref{sec:bla}'' instead of ``Fig.~\ref{sec:bla}''
+\graphicspath{{figures/}{pictures/}{images/}{./}} % where to search for the images
+
+\usepackage{microtype}                 % use micro-typography (slightly more compact, better to read)
+\PassOptionsToPackage{warn}{textcomp}  % to address font issues with \textrightarrow
+\usepackage{textcomp}                  % use better special symbols
+\usepackage{mathptmx}                  % use matching math font
+\usepackage{times}                     % we use Times as the main font
+\renewcommand*\ttdefault{txtt}         % a nicer typewriter font
+\usepackage{tabu}                      % only used for the table example
+\usepackage{booktabs}                  % only used for the table 
+\usepackage{url}
+\usepackage{tabularray}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{template.bib}
+
+\onlineid{0}
+\vgtccategory{Research}
+
+\title{The state-of-art
+platforms and tools which can be used to develop immersive analytical
+applications}
+
+\author{Walid Chtioui\thanks{e-mail: walid.chtioui@ensi-uma.tn}\\ %
+        \scriptsize Computer Science M.Sc. Student %
+\and Ed Grimley\thanks{e-mail: <EMANIL HERE ACHREF!>}\\ %
+     \scriptsize Computer Science M.Sc. Student}
+
+%% A teaser figure can be included as follows, but is not recommended since
+%% the space is now taken up by a full width abstract.
+%\teaser{
+%  \includegraphics[width=1.5in]{sample.eps}
+%  \caption{Lookit! Lookit!}
+%}
+
+\abstract{This paper presents an overview of the latest state-of-the-art
+platforms and tools which can be used to develop immersive analytics
+(hereafter IA) applications. The term platform refers to programs that provide
+a high-level application programming interface (API) along side a set
+of extensive XR features which allow developers to create complex XR
+experiences. Initially, an overview of what we believe are the major extended
+reality (hereafter XR) development platforms is provided after which a table
+of, what we think are, important-to-have features and by which platforms they
+are supported is presented.
+} % end of abstract
+
+\CCScatlist{ 
+    {HEY}{HEY}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\firstsection{Introduction}
+\maketitle
+This template is for papers of VGTC-sponsored conferences which are
+\emph{\textbf{not}} published in a special issue of TVCG.
+
+\section{Platforms}
+\subsection{Unity}
+Unity has a wide adoption in the world of XR thanks to its unified workflow
+and support for various XR platforms - build once, run
+everywhere -. Unity supports an extensive set of XR vendor-specific software
+development kits (hereafter SDK) including: Apple's ARKit, Google's ARCore,
+Microsoft's HoloLens and OpenXR. Following the announcement of Apple's
+mixed reality (MR) headset Vision Pro in Apple's Worldwide Developers
+Conference (WWDC) 2023, Unity was announced to provide native support for
+Vision's Pro operating system VisionOS \cite{web:vision_pro_unity}.
+Unity also provides a set of XR packages that are built on top of these vendor
+plugins to add application-level development tools \cite{unity:xr_packages}.
+For instance, AR Foundation is an industry-standard framework that provides
+support for various AR features such as: object tracking and plane detection.
+\subsection{Unreal Engine}
+\subsection{Comparison}
+Figure \ref{table:1} provides a comparison between the previously discussed
+platforms in terms of support for vendor-specific SDKs and a set of features.
+
+\begin{table}[h!]
+	\centering
+
+	\begin{tabular}{l c c}
+		\toprule
+		                  & \multicolumn{2}{c}{\textbf{Platform}}                 \\
+		\cmidrule(l){2-3}
+		\textbf{Strain}   & Unity                                 & Unreal Engine \\
+		\midrule
+		ARCore            & X                                     & X             \\
+		ARKit             & X                                     & X             \\
+		Magic Leap        & X                                     &               \\
+		Microsof HoloLens & X                                     &               \\
+		OpenXR            & X                                     & X             \\
+		Oculus            & X                                     & X             \\
+		WebXR             &                                       &               \\
+		VisionOS          & X                                     &               \\
+
+		\bottomrule
+	\end{tabular}
+
+
+	\medskip
+
+	\caption{Per-platform supported SDKs and XR features.}
+	\label{table:1}
+\end{table}
+
+\section{Toolkits}
+\subsection{DXR Toolkit}
+Mr. X and al. proposed an IA toolkit built on top of the Unity game engine.
+DXR allows fast prototyping and iteration for non-experienced users; i.e.
+users with no or little programming knowledge in XR and Unity.
+Alongside the data input, DXR takes a specification file written in JavaScript
+Object Notation (hereafter JSON) from which visualisations are created.
+The specification file is described in Vega-Like declarative grammar
+(only what should be achieved has to be provided, not how) making it suitable
+for users with no programming experience to rapidly realise immersive
+visualisations. This file can be edited in a separate text editor or through
+the use of a GUI with pre-configured set of parameters. DXR also provides
+built-in specification templates for common visualisations such as: Scatter
+plots and bar charts. This even more extends the scope of users to include
+those without any technical experience. Although the authors claim that DXR
+provides suitable flexibility, the scope of that flexibility seems to be
+limited, among other things, to providing custom graphical markers, custom
+encoding channels (a channel is a visualisation parameter affected by some
+data attribute, such as object size affected a quantitative value in data)
+and other visualisation-type specific properties. That limits users to a
+templated and common set of visualisations such as Scatter plots, bar charts
+and radial bars. There is also no mention of real-time data support thus
+limiting the use-case of DXR to offline data only. As the authors have
+explicitly mentioned, DXR is meant for prototyping and exploring designs, it
+is not designed to handle visualisations of large data-sets. On HoloLens,
+for datasets with more than approximatly a 1000 item, sub-optimal; i.e. less
+that 60 frames per second (hereafter FPS) performance has been observed.
+Nonetheless, the author argue that DXR can still be useful for quickly and
+cheaply prototyping large dataset designs before moving to specialized,
+optimized and detailed implementations.
+
+\section{Prototypes}
+\subsection{Uplift}
+
+\section{Collaboration Tools and Techniques}
+\section{Interaction Tools and Techniques}
+\section{Navigation Tools and Techniques}
+
+\section{Conclusion}
+TO BE WRITTEN AT THE VERY END
+
+\acknowledgments{TO BE WRITTEN AT THE VERY END}
+\printbibliography
+\end{document}
