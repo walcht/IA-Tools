@@ -1,7 +1,9 @@
-.PHONY: clean, all
+.PHONY: clean, all, open
 all:
 	biber template
 	pdflatex template.tex
+
+open:
 	open template.pdf
 
 clean :
