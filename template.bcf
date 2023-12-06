@@ -2348,14 +2348,16 @@
     <bcf:citekey order="2">unity:xr_packages</bcf:citekey>
     <bcf:citekey order="3">dxr_toolkit</bcf:citekey>
     <bcf:citekey order="4">vega_lite</bcf:citekey>
-    <bcf:citekey order="5">uplift_prototype</bcf:citekey>
-    <bcf:citekey order="6">unity:vuforia_plugin</bcf:citekey>
-    <bcf:citekey order="7">web:vision_pro_unity</bcf:citekey>
-    <bcf:citekey order="8">unity:xr_packages</bcf:citekey>
-    <bcf:citekey order="9">dxr_toolkit</bcf:citekey>
-    <bcf:citekey order="10">vega_lite</bcf:citekey>
-    <bcf:citekey order="11">uplift_prototype</bcf:citekey>
-    <bcf:citekey order="12">unity:vuforia_plugin</bcf:citekey>
+    <bcf:citekey order="5">iatk_toolkit</bcf:citekey>
+    <bcf:citekey order="6">uplift_prototype</bcf:citekey>
+    <bcf:citekey order="7">unity:vuforia_plugin</bcf:citekey>
+    <bcf:citekey order="8">web:vision_pro_unity</bcf:citekey>
+    <bcf:citekey order="9">unity:xr_packages</bcf:citekey>
+    <bcf:citekey order="10">dxr_toolkit</bcf:citekey>
+    <bcf:citekey order="11">vega_lite</bcf:citekey>
+    <bcf:citekey order="12">iatk_toolkit</bcf:citekey>
+    <bcf:citekey order="13">uplift_prototype</bcf:citekey>
+    <bcf:citekey order="14">unity:vuforia_plugin</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

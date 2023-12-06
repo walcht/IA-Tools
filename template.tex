@@ -133,11 +133,11 @@ platforms in terms of support for vendor-specific SDKs and a set of features.
 	\label{table:1}
 \end{table}
 
-\section{Toolkits}
+\section{Toolkits and Frameworks}
 
 TODO: add what do we mean by 'toolkit' + what will be discussed here
 
-\subsection{DXR}
+\subsection{DXR Toolkit}
 
 Sicat et al. proposed DXR \cite{dxr_toolkit}; an IA toolkit built on top of the Unity game engine
 that allows fast prototyping and iteration for non-experienced users; i.e.
@@ -171,28 +171,42 @@ performance has been observed. Nonetheless, the authors argue that DXR can still
 be useful for quickly and cheaply prototyping large dataset designs before
 moving to specialized, optimized and detailed implementations.
 
-\subsection{IATK}
+\subsection{IATK Toolkit}
 Maxime et al. introduced IATK \cite{iatk_toolkit}; an open-source software
 package for Unity that provides both a high-level Unity-editor-integrated GUI
 for simple authoring and a low-level C-sharp and JavaScript API for
 fine-grained authoring and extending the visualizations.
 
 To some degree of similarity to DXR, IATK relies on a high-level declarative
-grammar by providing a composable grammar of visualization primitives alongside
-a high-level interface for rapid prototyping and iterations. What sets IATK
-apart, is that it was designed with scalability in mind, a focus on large
-and complex datasets and a focus on user interactions. The toolkit can render
-millions of items thanks to its use of efficient GPU shader code.
+grammar of graphics by providing a composable grammar of visualization
+primitives alongside a high-level interface for rapid prototyping and
+iterations. What sets IATK apart, is that it was designed with scalability in
+mind, a focus on large and complex datasets and a focus on user interactions.
+The toolkit's authors claim that it can render millions of items thanks to its
+use of efficient GPU shader code. Also, contrary to DXR, IATK does not support
+declarative configurations it instead relies on a Unity editor GUI or C-sharp
+API code that make use of a composable grammar to author visualizations.
 
 Unlike DXR and other toolkits built on top of Unity, IATK doesn't render
 the datapoints (here we don't mean point as in a geometrical point) as Unity
 game objects and use expensive-to-update-at-large-scale object attributes as
-visualization channels. Instead, all the datapoints are visualized whithin one
+visualization channels. Instead, all the datapoints are visualized within one
 game object where each data point is encoded into a unique vertex by mapping
 data attributes, such as position, color and size, into vertex components such
 as vertex UV coordinates which is a two dimensional vector, vertex normal vector
 and vertex color. This way, actual datapoint geometries are created on the GPU
-resulting in a more efficient rendering process.
+resulting in a what is claimed to be more efficient rendering process. This
+however greatly limits the customizability of datapoint marks and the choice
+of visualization channels.
+
+According to the authors' performance statistics, on VR less than 90 FPS is
+observed at two million datapoints and on AR less than 60 FPS is observed at
+just a thousand datapoints. However, one can subjectively claim that the performance on AR
+HoloLens headset remains acceptable up-to ten thousand datapoints at which 41
+FPS is achieved. Although the authors provided FPS statistics for Oculus CV1,
+Meta2 and HoloLens devices, no performance statistics were provided for the
+alternative game-object-based datapoint approach to provide a performance
+reference point.
 
 IATK integrates an interactive visualization model within its visualization
 components that allows a set of interactions including filtering, brushing and
@@ -201,12 +215,20 @@ These interactions are implemented in the vertex shader part of the rendering
 pipeline which leverages the high parallelism nature of the GPU(s) making them
 particularly responsive and efficient at handling large datasets.
 
-The authors also claim that IATK's grammar is more expressive
-than those of existing toolkits.
+IATK's high-level GUI provides just three built-in visualization types:
+either a scatterplot, a parallel coordinates or a scatterplot matrix. It also
+only provides a small set of datapoint geometries. To extend these, one has to
+use the provided low-level API which might limit expressiveness for
+non-experienced users.
 
+The authors didn't mention any support for neither real-time data
+visualization nor local or remote collaboration. It is also worth mentioning
+that for VR only scatterplot visualization type is supported. This greatly
+limits the expressiveness for VR users.
 
-- mention performance (it claims to support interactions with several million
-points)
+\subsection{VRIA Toolkit}
+
+\subsection{Comparison}
 
 \section{Prototypes}
 \subsection{Uplift}
