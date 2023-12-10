@@ -50,29 +50,34 @@ applications}
 %}
 
 \abstract{This paper presents an overview of the latest state-of-the-art
-platforms and tools which can be used to develop immersive analytics
-(hereafter IA) applications. The term platform refers to programs that provide
-a high-level application programming interface (API) along side a set
-of extensive XR features which allow developers to create complex XR
-experiences. Initially, an overview of what we believe are the major extended
-reality (hereafter XR) development platforms is provided after which a table
-of, what we think are, important-to-have features and by which platforms they
-are supported is presented.
+platforms and toolkits which can be used to develop immersive analytics (IA)
+experiences. Initially, a short overview of Unity3D and Unreal Engine with a
+comparison of supported eXtended Reality (XR) features and third party tools
+is provided. After that, we present an overview associated with a critique of
+what we believe are the major XR development toolkits. For each toolkit we
+discuss the set of what we think are important features they provide or lack
+such as the support for collaboration, interactions, real-time data and large
+datasets. We then present a comparison study between these toolkits with a
+particular focus on performance, supported devices, accessibility and
+ease-of-use. A set of state-of-the-art tools and techniques, which can be used
+to extend aforementioned toolkits, covering collaboration, interaction and
+navigation topics are then provided. We've come to the conclusion that,
+although IA toolkits have come out of their infancy, we are still yet to see an
+IA toolkit that provides a unified workflow allowing for versatile
+visualizations, collaboration support, acceptable performance scalability,
+real-time data support and support for a plethora of XR and non-XR devices
+which has the potential to replicate the wide success of conventional
+visualization frameworks such as D3.js.
 } % end of abstract
 
-\CCScatlist{ 
-    {HEY}{HEY}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 \firstsection{Introduction}
 \maketitle
-This template is for papers of VGTC-sponsored conferences which are
-\emph{\textbf{not}} published in a special issue of TVCG.
+
 
 \section{Platforms}
 \subsection{Unity}
@@ -239,27 +244,28 @@ Peter et al. introduce VRIA \cite{vria_framework}; a free and open-source
 framework for building IA experiences in VR. Unlike the aforementioned
 toolkits, VRIA isn't built as an add-on on top of a game engine. Instead, it is
 built upon open-standard Web-based frameworks such as WebVR, A-Frame, React and
-D3.js, all of which are mature, open-source and widely used Web-based
+D3.js. All of which are mature, open-source and widely used Web-based
 frameworks and libraries. This allows VRIA applications to be accessible by a
 plethora of VR and non-VR devices.
 
 \smallskip
 
 \noindent The toolkit is designed to be accessible to novices and experts
-alike. Similar to DXR, VRIA makes use of a declarative grammar based on
-Vega-Lite to allow users to create custom visualizations based on configuration
-files. However, this visualization configuration file is only required for
+alike. Similar to DXR, VRIA makes use of a declarative grammar similar to
+Vega-Lite \cite{vega_lite} which allows users to create custom visualizations based on a configuration
+file. However, this visualization configuration file is only required for
 basic functionalities. For extra custom functionalities such as a custom set of
 visualization channels, interactions, graphical marks or visualization types,
-more experienced users can create these by using the provided low-level API.
+more experienced users are advised to use the provided low-level API.
 VRIA provides The VRIA Builder; a Web application intended for beginners that
 integrates a GUI and a 3D scene view to rapidly prototype visualization designs
 with instant feedback without having to leave the browser. It is worth
 mentioning that, unlike DXR, this customization GUI isn't part of the VR scene
-and cannot be viewed withing the VR headset and only the scene view can be
+and cannot be viewed withing the VR headset. Only the scene view can be
 experienced immersively. However, the authors mentioned their willingness to
 add \textit{in-situ} GUI so that users can build and prototype visualizations
-iteratively without having to remove the headset.
+iteratively without having to remove the headset and switch back to desktop
+screen.
 
 \smallskip
 
@@ -270,10 +276,13 @@ VRIA has support for collaborative immersive analytics through either the
 high-level networking abstraction layer provided by the open-source Networked
 A-Frame component or by using the provided API with lower-level networking
 libraries.
-In term of data input, the toolkit only supports tabular data in the form of
+
+\smallskip
+
+\noindent In terms of data input, the toolkit only supports tabular data in the form of
 JSON or CSV thus real-time data visualization isn't supported. The authors
-expressed their willingness to add support for other forms of data such as
-geospatial GeoJSON, network and relational data models.
+expressed their willingness to add support for other forms of data models such as
+geospatial GeoJSON, network and relational models.
 
 \smallskip
 
@@ -282,9 +291,9 @@ visualization within its IA experiences. D3.js is web-base JavaScript
 visualization library that provides a low-level approach to author graphics and
 powerful mechanisms to transform and manipulate data. Since D3.js is widely
 adopted, integrating it within VRIA allows for easier usability and quicker
-authoring of 2D visualizations. However, there wasn't a detailed description of
+authoring of 2D visualizations. However, there wasn't a description of
 which D3.js functionalities and visualizations are integrable nor any guidance
-on how to integrate it within VRIA framework.
+on how to integrate it within the VRIA framework.
 
 \smallskip
 
@@ -292,21 +301,21 @@ on how to integrate it within VRIA framework.
 forced to deal with two separate tools to author custom visualizations;
 the visualization configuration file specified in a declarative language and
 the API specified in JavaScript. We believe that it would be easier for the end users if VRIA
-provided more customizability through the vis config file instead of just
-providing very basic functionalities. We also question the necessity of adding
-the extra A-Frame layer, albeit thin, on top of Three.js. A-Frames'
-functionalities could be directly implemented in Three.js thus reducing and
-simplifying the VRIA stack. But we do understand that A-Frame simplifies the
-process of creating VR experiences on the web relative to the lower level
-Three.js library. The authors stated their intention to work at the Three.js
-level directly without any further abstraction libraries.
+provided more customizability through the visualization configuration file instead of just
+providing very basic functionalities.
+Although it is understandable that A-Frame simplifies the process of creating
+VR experiences on the web relative to the lower level Three.js library, we
+question its necessity. A-Frames' functionalities could be directly implemented
+in Three.js thus reducing and simplifying the VRIA stack. The authors stated
+their intention to work at the Three.js level directly without the usage of any further
+abstraction libraries.
 
 \smallskip
 
 \noindent Whenever 3D graphics are mentioned in the context of web browsers,
 performance implementations are one of the most worrying aspects. This is
 especially true for Web-based VR applications where two images have to be
-rendered each frame preferably at 90 FPS to avoid motionsickness. VRIA's
+rendered each frame preferably at 90 FPS to avoid motion sickness. VRIA's
 authors provided visualization benchmarks on a desktop monitor, a desktop
 Oculus Rift CV1 and a smartphone. A scatter-plot visualization type was used
 with sphere graphical marks. The exact set of visualization channels used
@@ -324,12 +333,12 @@ in terms of performance, with game-engine based solutions.
 
 \smallskip
 
-\noindent VRIA only support Cartesian plots but the authors expressed their
+\noindent VRIA only supports Cartesian plots but the authors expressed their
 willingness to add support for other coordinate systems including geographical
 and spherical coordinates.
 Moreover, although the authors showcased the ease of integrating VRIA with
 AR.js to target AR experiences, the absence of an out-of-box support for VRIA
-still limits AR accessiblity only to experienced users.
+still limits AR accessibility only to experienced users.
 
 \subsection{Comparison}
 
