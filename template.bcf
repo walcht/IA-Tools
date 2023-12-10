@@ -2349,15 +2349,17 @@
     <bcf:citekey order="3">dxr_toolkit</bcf:citekey>
     <bcf:citekey order="4">vega_lite</bcf:citekey>
     <bcf:citekey order="5">iatk_toolkit</bcf:citekey>
-    <bcf:citekey order="6">uplift_prototype</bcf:citekey>
-    <bcf:citekey order="7">unity:vuforia_plugin</bcf:citekey>
-    <bcf:citekey order="8">web:vision_pro_unity</bcf:citekey>
-    <bcf:citekey order="9">unity:xr_packages</bcf:citekey>
-    <bcf:citekey order="10">dxr_toolkit</bcf:citekey>
-    <bcf:citekey order="11">vega_lite</bcf:citekey>
-    <bcf:citekey order="12">iatk_toolkit</bcf:citekey>
-    <bcf:citekey order="13">uplift_prototype</bcf:citekey>
-    <bcf:citekey order="14">unity:vuforia_plugin</bcf:citekey>
+    <bcf:citekey order="6">vria_framework</bcf:citekey>
+    <bcf:citekey order="7">uplift_prototype</bcf:citekey>
+    <bcf:citekey order="8">unity:vuforia_plugin</bcf:citekey>
+    <bcf:citekey order="9">web:vision_pro_unity</bcf:citekey>
+    <bcf:citekey order="10">unity:xr_packages</bcf:citekey>
+    <bcf:citekey order="11">dxr_toolkit</bcf:citekey>
+    <bcf:citekey order="12">vega_lite</bcf:citekey>
+    <bcf:citekey order="13">iatk_toolkit</bcf:citekey>
+    <bcf:citekey order="14">vria_framework</bcf:citekey>
+    <bcf:citekey order="15">uplift_prototype</bcf:citekey>
+    <bcf:citekey order="16">unity:vuforia_plugin</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

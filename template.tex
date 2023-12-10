@@ -118,9 +118,9 @@ platforms in terms of support for vendor-specific SDKs and a set of features.
 		Environment Probes   & X                                     & X                 \\
 		Face Tracking        & X                                     & *(ARKit only)     \\
 		Object Tracking      & X                                     & X                 \\
-		Body Tracking        & X                                     & ?                 \\
+		Body Tracking        & X                                     & ? (not mentioned) \\
 		Camera Intrinsics    & X                                     & X                 \\
-		Meshing              & X                                     & ?                 \\
+		Meshing              & X                                     & ? (not mentioned) \\
 		\midrule
 		Vuforia Support      & X                                     &                   \\
 		\bottomrule
@@ -187,6 +187,14 @@ use of efficient GPU shader code. Also, contrary to DXR, IATK does not support
 declarative configurations it instead relies on a Unity editor GUI or C-sharp
 API code that make use of a composable grammar to author visualizations.
 
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{iatk}
+	\caption{IATK visualizations. (1) 3D scatter plot with sphere datapoint
+		geometry. The images are from is in the public domain.}
+	\label{fig:sample}
+\end{figure}
+
 Unlike DXR and other toolkits built on top of Unity, IATK doesn't render
 the datapoints (here we don't mean point as in a geometrical point) as Unity
 game objects and use expensive-to-update-at-large-scale object attributes as
@@ -227,6 +235,101 @@ that for VR only scatterplot visualization type is supported. This greatly
 limits the expressiveness for VR users.
 
 \subsection{VRIA Toolkit}
+Peter et al. introduce VRIA \cite{vria_framework}; a free and open-source
+framework for building IA experiences in VR. Unlike the aforementioned
+toolkits, VRIA isn't built as an add-on on top of a game engine. Instead, it is
+built upon open-standard Web-based frameworks such as WebVR, A-Frame, React and
+D3.js, all of which are mature, open-source and widely used Web-based
+frameworks and libraries. This allows VRIA applications to be accessible by a
+plethora of VR and non-VR devices.
+
+\smallskip
+
+\noindent The toolkit is designed to be accessible to novices and experts
+alike. Similar to DXR, VRIA makes use of a declarative grammar based on
+Vega-Lite to allow users to create custom visualizations based on configuration
+files. However, this visualization configuration file is only required for
+basic functionalities. For extra custom functionalities such as a custom set of
+visualization channels, interactions, graphical marks or visualization types,
+more experienced users can create these by using the provided low-level API.
+VRIA provides The VRIA Builder; a Web application intended for beginners that
+integrates a GUI and a 3D scene view to rapidly prototype visualization designs
+with instant feedback without having to leave the browser. It is worth
+mentioning that, unlike DXR, this customization GUI isn't part of the VR scene
+and cannot be viewed withing the VR headset and only the scene view can be
+experienced immersively. However, the authors mentioned their willingness to
+add \textit{in-situ} GUI so that users can build and prototype visualizations
+iteratively without having to remove the headset.
+
+\smallskip
+
+\noindent Thanks to its composable structure, the toolkit can be integrated into
+other existing 2D or immersive visualization applications. For instance,
+VRIA's visualizations can be overlaid on top of another A-Frame scene.
+VRIA has support for collaborative immersive analytics through either the
+high-level networking abstraction layer provided by the open-source Networked
+A-Frame component or by using the provided API with lower-level networking
+libraries.
+In term of data input, the toolkit only supports tabular data in the form of
+JSON or CSV thus real-time data visualization isn't supported. The authors
+expressed their willingness to add support for other forms of data such as
+geospatial GeoJSON, network and relational data models.
+
+\smallskip
+
+\noindent The authors stated that VRIA offers the option to integrate D3.js
+visualization within its IA experiences. D3.js is web-base JavaScript
+visualization library that provides a low-level approach to author graphics and
+powerful mechanisms to transform and manipulate data. Since D3.js is widely
+adopted, integrating it within VRIA allows for easier usability and quicker
+authoring of 2D visualizations. However, there wasn't a detailed description of
+which D3.js functionalities and visualizations are integrable nor any guidance
+on how to integrate it within VRIA framework.
+
+\smallskip
+
+\noindent More experienced users seeking for a more custom experience are
+forced to deal with two separate tools to author custom visualizations;
+the visualization configuration file specified in a declarative language and
+the API specified in JavaScript. We believe that it would be easier for the end users if VRIA
+provided more customizability through the vis config file instead of just
+providing very basic functionalities. We also question the necessity of adding
+the extra A-Frame layer, albeit thin, on top of Three.js. A-Frames'
+functionalities could be directly implemented in Three.js thus reducing and
+simplifying the VRIA stack. But we do understand that A-Frame simplifies the
+process of creating VR experiences on the web relative to the lower level
+Three.js library. The authors stated their intention to work at the Three.js
+level directly without any further abstraction libraries.
+
+\smallskip
+
+\noindent Whenever 3D graphics are mentioned in the context of web browsers,
+performance implementations are one of the most worrying aspects. This is
+especially true for Web-based VR applications where two images have to be
+rendered each frame preferably at 90 FPS to avoid motionsickness. VRIA's
+authors provided visualization benchmarks on a desktop monitor, a desktop
+Oculus Rift CV1 and a smartphone. A scatter-plot visualization type was used
+with sphere graphical marks. The exact set of visualization channels used
+wasn't mentioned neither were attributes of the input data. On the desktop
+monitor and Oculus Lift HMD, performance drops significantly after one
+thousand data points. On smartphone performance starts dropping at one hundred
+data points. This proves that VRIA is not suitable for large dataset
+visualizations. The authors claim that the performance observed for the HMD
+is similar to that of IATK for the HoloLens device. But the HoloLens uses
+its own, much less powerful, hardware while VRIA performance benchmark used
+the Oculus Lift CV1 VR HMD which relies on a separate desktop for expensive
+rendering operations. We therefore question such comparisons of performance
+benchmarks. This is later Web-based XR solutions do not compete,
+in terms of performance, with game-engine based solutions.
+
+\smallskip
+
+\noindent VRIA only support Cartesian plots but the authors expressed their
+willingness to add support for other coordinate systems including geographical
+and spherical coordinates.
+Moreover, although the authors showcased the ease of integrating VRIA with
+AR.js to target AR experiences, the absence of an out-of-box support for VRIA
+still limits AR accessiblity only to experienced users.
 
 \subsection{Comparison}
 
