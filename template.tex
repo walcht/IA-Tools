@@ -480,55 +480,90 @@ prototype were initially provided and subsequently modified, through multiple
 feedback sessions, by a wide range of stakeholders including microgrid project
 and energy systems experts.
 
-\smallskip
-
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\columnwidth]{uplift}
-	\caption[Caption for Uplift]{Uplift. TODO: Add adequate explanations for
-		each important Uplift aspect with reference to this figure.}
+	\caption[Caption for Uplift]{A showcase of Uplift prototype. (1)
+		Translucent scaled-down models of campus buildings placed on top of the
+		colored tabletop to reflect energy consumption. (2) Users gathering
+		around the central tabletop supported with a large 2D display. (3)
+		A user picking up a scaled-down building model of the campus. (4)
+		A user interacting with a tangible widget affecting a slider which
+		in turn affects time granularity and therefore the number of slices
+		in (5). (5) AR for visualizing data above and around the central
+		tabletop, in particular hourly energy consumption is visualized as 2D
+		slices laid over buildings. (6) A picked-up campus scaled-down building
+		model overlaid with relevant data by AR.
+		Images from \cite{uplift_prototype}.}
 	\label{fig:uplift}
 \end{figure}
 
-\noindent Uplift relies more than just AR headsets to bring casual collaborative visual
-analytics to a multitude of microgrid stakeholders. A tabletop display showing
-a geographical map of the campus grid is used as a central platform where users
-are supposed to gather around and interact with widgets placed on top of it.
-Uplift also makes use of tangible
-widgets which are physical and interactive elements that control visualization
-parameters (for instance by affecting sliders). The prototype also relies on
-scaled-down physical models of buildings that are translucent which allows
-the color of the surface on which they are placed to be used as an appealing
-visualization channel. AR is used to display multiple 3D data types on top of
-the tabletop and 2D graphs alongside legends around it. On top of these, Uplift
-uses a large display to either replicate the content of the tabletop or show
-additional visualizations.
+\medskip
 
-\smallskip
+\noindent The main design goals of Uplif that were identified through multiple
+stakeholders feedback sessions are:
+\begin{itemize}
+	\item \textbf{Walk Up and Use}: The system should be inviting, intriguing and
+	      compelling.
+	\item \textbf{Low Technical Barrier to Entry}: Easily usable by users with a wide
+	      degree of technical knowledge.
+	\item \textbf{Supports Multiple Participants}: Provide flexible collaboration
+	      support to small and large groups alike.
+	\item \textbf{Supports Analytical Sprints}: Provide support for short analytical
+	      activities.
+\end{itemize}
 
-\noindent Through the feedback of 16 participants who tried the prototype, Uplift was
-proven to be potentially useful for microgrid-related data analytics.
+\medskip
 
-\smallskip
+\noindent Uplift relies more than just AR headsets to bring casual
+collaborative visual analytics to a multitude of microgrid stakeholders.
+A tabletop display showing a geographical map of the campus grid is used as a
+central platform where users are supposed to gather around and interact with
+widgets placed on top of it (\cref{fig:uplift} (2)). Uplift also makes use of
+tangible widgets which are physical and interactive elements that control
+visualization parameters (for instance by affecting sliders) (\cref{fig:uplift}
+(4)). The prototype also relies on scaled-down physical models of buildings
+that are translucent which allows the color of the surface on which they are
+placed to be used as an appealing visualization channel
+(\cref{fig:uplift} (1)). If these models are picked up, AR will overlay
+relevant data about them (\cref{fig:uplift} (6)). AR is used to display
+multiple 3D data types on top of the tabletop and 2D graphs alongside legends
+around it (\cref{fig:uplift} (5)). On top of these, Uplift uses a large display
+to either replicate the content of the tabletop or show additional
+visualizations (\cref{fig:uplift} (2)).
+
+\medskip
+
+\noindent Through the feedback of 16 participants who tried the prototype,
+Uplift was proven to be potentially useful for microgrid-related data
+analytics.
+
+\medskip
 
 \noindent Although Uplift was designed for microgrid-related systems,
 the authors claim that its applicability domain can be extended to include
-other domains that rely on analysis of complex spatial data such as
-the construction industry. However, the use of a wide range of technologies
+other fields that rely on analysis of complex spatial data for sense-making
+such as the construction industry. However, the use of a wide range of technologies
 and gadgets makes Uplift a specialized solution that we believe isn't yet
 ready for wide deployment. For instance, on top of using Vuforia for tabletop
-tracking, Uplift uses an extra proprietary tracking software with four cameras
-to track the tangible widgets. Such tracking could have instead been done in
-Vuforia therefore removing the need to add cameras to the scene and making the
-solution much more self-contained. This is especially true since Vuforia provides
-an official plugin for Unity development \cite{unity:vuforia_plugin}.
-Moreover, although the topic of real-time monitoring of the microgrid was seen
-as beneficial for operators by expert stakeholders, Uplift didn't provide any
-solutions to tackle such use case.
+tracking, Uplift uses the motion capture Vicon system
+\footnote{https://www.vicon.com/} with a proprietary tracking software and four
+cameras to track the tangible widgets and the buildings. However,
+since no proof was provided for the usefulness of overlaying information when
+a building model is picked, we question the usage of object tracking for this
+purpose. This is particularly true if such feature requires the addition of
+expensive gadgets and proprietary software. For instance, model position is
+already embedded in the tabletop map visualization and that can be used by AR
+to overlay visualizations above without the need of object tracking. We also
+argue that the use of tangible widgets to control visualization parameters does
+not justify the usage of additional gadgets and software required to track
+them.
 
-\subsection{Conclusion}
-TODO: write how these prototypes could be integrated into other toolkits
-to enhancing provided IA experiences.
+\medskip
+
+\noindent Uplift expects a static data input therefore, although the topic of
+real-time monitoring of the microgrid was seen as beneficial for operators by
+expert stakeholders, the tool doesn't support real-time immersive analytics.
 
 \section{Collaboration Tools and Techniques}
 \subsection{Conclusion}
@@ -559,11 +594,12 @@ visualizations and immersive reality experiences (\cref{fig:hybridaxes}).
 \end{figure}
 
 \noindent HybridAxes aims to provide a balanced feature set and performance
-between the two ends of the Reality-Virtuality continuum while giving the users the ultimate choice to choose
-which environment to work in. To avoid disruptions of the user's
-flow when context switching, the tool also aims to provide a smooth transition
-by reducing visualization generation delays. It claims to do that by
-anticipating the user's interactions in both modes and preemptively generating
+between the two ends of the Reality-Virtuality continuum while giving the users
+the ultimate choice to choose which environment to work in. To avoid
+disruptions of the user's flow when context switching, the tool also aims to
+provide a smooth transition by reducing visualization generation delays. It
+claims to do that by anticipating the user's interactions in both modes and
+preemptively generating
 visualizations in the background. Moreover, the authors stated that providing
 a clear signaling of transition status either through visual (\cref{fig:hybridaxes} (2, 5)) or
 controller-related feedback is a core design requirement for the tool.
@@ -613,19 +649,31 @@ performance measurements were provided to back this claim.
 
 \noindent The authors hypothesize that enabling visual analytics users to
 smoothly context switch between a 2D screen and 3D immersive experience could
-improve their sense-making abilities. A limited study of the usefulness of the tool has been conducted on just four
-participants where they analyzed the data in three scenarios: 1) just using 2D
+improve their sense-making abilities. A limited study of the usefulness of the
+tool has been conducted on just four participants where they analyzed the data
+in three scenarios: 1) just using 2D
 desktop screen, 2) using a hybrid desktop/AR system and 3) just using the AR
 system. The authors claim that the study results align with their hypothesis.
 However, neither metrics nor sufficient details were provided to prove this
 claim. Nonetheless, the authors mentioned their willingness to perform a more
 rigorous study in the future.
 
-\subsection{Conclusion}
-TODO: write how using such tools could contribute to enhancing IA experiences.
-
 \section{Conclusion}
-TO BE WRITTEN AT THE VERY END
+We presented an overview of the platforms and tools in the last six years which
+can be used to develop IA experiences. We have come to the conclusion that
+there isn't a single IA toolkit yet that has the same level of versatility,
+visualization-tailored, ease-of-use and support of various data inputs and
+streams such as the widely successful 2D visualization libraries like D3.js.
+The latest IA survey from 2021 \cite{survey_of_ia} also didn't mention any IA
+tool that meets these criteria.
+We argue in favor of visualization-tailored tool that is built on top of
+open-standard XR technologies. We do particularly believe that an open-source
+and free-to-use - i.e. provides a permissive free software license - tool built
+on top of the open-standard OpenXR API, built by the same group that brought
+widely used open-standard graphics API such as OpenGL and Vulkan, can mimic
+the success of conventional 2D visualization libraries such as D3.js.
+Unfortunately, we haven't come across such a framework and the closest to that
+in terms of reliance on open-standard technologies would be VRIA.
 
 \acknowledgments{TO BE WRITTEN AT THE VERY END}
 \printbibliography
