@@ -470,6 +470,141 @@ TODO: Is it worth it adding this toolkit (that mainly focuses on interactions)?
 \subsection{Comparison}
 
 \section{Prototypes}
+
+\subsection{Fiesta}
+
+\noindent Benjamin et al. built FIESTA \cite{fiesta_prototype}; an open-source
+\footnote{https://github.com/benjaminchlee/FIESTA} team-based analysis
+prototype that allows users to create, manipulate and share data visualizations
+in an unconstrained and physically co-located VR-only environment. The authors
+state that the main objective behind developing FIESTA is to study how groups
+collaboratively explore data in a free-roaming VR environment.
+
+\medskip
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{fiesta}
+	\caption{(1) Real view of participants using the FIESTA system. (2)
+		Top-down view of a virtual scene in which three participants are
+		conducting visual analytics tasks. (3) A virtual view from the perspective of an
+		observer. (4) Egocentric layout. (5) Planar layout. (6) Authoring panel
+		with a faceted scatterplot on it's right interface. (7) Details on
+		demand to easily inspect data records. All images are taken from
+		\cite{fiesta_prototype}.}
+	\label{fig:fiesta}
+\end{figure}
+
+\noindent FIESTA is built on top of IATK. The authors justify the usage of IATK
+for performance reasons since multiple users can each produce multiple
+visualizations. A 16m\textsuperscript{2} (4m x 4m) room is used to conduct the
+study. Each user is equipped with a VR headset and a backpack containing a
+laptop to which the headset is connected (\cref{fig:fiesta} (1)). To track the
+headsets' positions, four trackers are positioned in the room; one in each
+corner. An additional desktop PC manages the users' laptops using the Unity
+networking engine Photon. Although the study focuses on physically co-located
+IA environment, the authors state that the research prototype also supports
+remote collaboration.
+
+\medskip
+
+\noindent The core design goals and features of FIESTA are:
+\begin{itemize}
+	\item \textbf{Baseline Visualizations} - The prototype provides three types
+	      of 2D and 3D visualizations: scatterplots, faceted scatterplots
+	      (\cref{fig:fiesta} (6)) and line charts.
+	\item \textbf{Baseline Interactions} - FIESTA relies on standard
+	      interfacing techniques across desktop and VR. It provides grasping
+	      techniques for interacting with UI elements at close range and ranged
+	      pointing techniques using a laser pointer for long range
+	      (\cref{fig:fiesta} (7)).
+	\item \textbf{Baseline Authoring} - Each user is provided with a movable
+	      panel to author visualizations (\cref{fig:fiesta} (2, 3, 4, 5, 6)).
+	      The panel is split into two sections: on the left, a GUI is provided
+	      to map data dimensions to visualization channels, choosing the
+	      faceting dimension and adjusting the number of facets; the right
+	      panel is used to show produced visualizations.
+	\item \textbf{Tearing out Visualizations} - Visualizations can be cloned
+	      from the panel by grasping and pulling them away. These cloned
+	      visualizations can then be placed independently in the 3D space
+	      (\cref{fig:fiesta} (2, 4, 5)). Resizing and rescaling operations are
+	      supported through grasping interactions on widgets placed along
+	      visualization object's axis. Visualizations can also be brought back
+	      into the panel for further editing or be destroyed through a
+	      throwing-towards-ground interaction.
+	\item \textbf{Linked Brushing} - Private and shared brushes are provided
+	      for each user. The private brush allows for selections that are only
+	      visible to the user while the shared brush allows for selections
+	      which are visible to all users. Brushing is linked across multiple
+	      visualizations through color channel, i.e. contrary to other tools
+	      where lines are used to visualize linked datapoints.
+	\item \textbf{Pointer and Details on Demand} - A pointer is provided and is
+	      activated through controller's trigger. Details-on-demand tool of the
+	      nearest datapoint is enabled through a touchpad input
+	      (\cref{fig:fiesta} (7)). The pointer can also be used to interact
+	      with the panel's interface through point-and-click interaction for
+	      buttons or point-and-drag interaction for sliders and pickers.
+	\item \textbf{Free Roaming Shared Environment} - To emulate a physically
+	      co-located collaborative environment, Each user is represented by a
+	      uniquely colored avatar and a floating nameplate
+	      (\cref{fig:fiesta} (3)). The same unique color of the user's avatar
+	      is used for coloring shared brush selection. There is no ownership
+	      system in FIESTA; everything is seen and interactive by all users
+	      except the private brush tool.
+	\item \textbf{Room and Surface Affordances} - To explore how users
+	      naturally use surface-based functionalities in collaborative IA
+	      environments to solve visual analytics tasks, a four-wall room with
+	      a square tabletop in the center is used. The virtual walls act as a
+	      boundary to prevent users from hitting the actual room walls.
+	      Releasing visualizations close to the virtual surface of the table
+	      top make them rest on top of it.
+\end{itemize}
+
+\medskip
+
+\noindent A total of 30 participants were recruited for the study with all but
+one having a background in computer science. The participants managed to
+perform visual analytics tasks and remained engaged with these tasks for 45
+minutes on average. This proves that collaborative visual analysis is possible
+in VR. Participants made use of 3D visualizations although their use was not
+emphasized. They came up with interesting ways to view them such as: scaling a
+3D visualization to room scale and standing in the middle of it; laying 3D
+visualizations around them in an egocentric layout (\cref{fig:fiesta} (4)) and
+looking at them from an axis-aligned viewpoint. With 2D visualizations,
+participants preferred placing them in a grid-like layout on the walls. This
+made them more presentable to others at all times contrary to 3D visualizations
+where users struggled to take the perspective of observers into consideration
+when viewing them. Therefore, IA tools should explore methods to facilitate the
+presentation of 3D visualizations to other users. Another interesting
+observation is that 3D visualizations heavily influenced the way 2D
+visualizations are organized. For instance, in the presence of 3D
+visualizations, these 2D visualizations were placed in an egocentric layout.
+These observations demonstrate the importance of a consistent UI design that
+supports both 2D and 3D visualizations. The study findings may also justify
+the need to provide different placement tools for 2D and 3D visualizations.
+Furthermore, although the usage of surfaces is completely optional in FIESTA,
+participants made use of the walls to neatly place their 2D visualizations.
+However, they saw no benefit in using the central table top for visualization
+placements. This demonstrates that users are influenced by environment
+configuration only if there is a tangible benefit to its usage. The majority
+of users mixed between individually and collaboratively working although both
+modes were optional in FIESTA. This proves that providing support for both
+working modes is invaluable. The study also showed that participants did not
+interact with objects that, except in cases where such interactions were
+expected, did not belong to them. However, the reason behind that could be
+avoiding physical collisions with other users. Therefore a study with remotely
+co-located environment is needed to further study these behaviours.
+
+\medskip
+
+\noindent Although the usage of surfaces is optional in FIESTA, they were
+inherently predefined - the users did not have the option to arrange such
+surfaces. A similar system in which they have to ability to define their own
+surfaces may further expand these findings. Furthermore, FIESTA is a VR-only
+prototype therefore these findings may not be applicable to IA experiences
+where AR is used.
+
+
 \subsection{Uplift}
 Barrett et al. proposed Uplift \cite{uplift_prototype}; an in-place
 collaborative visual analytics prototype targeting users with diverse
@@ -626,7 +761,7 @@ visualizations is superior to the suggested workflow. Our main argument is
 that this way all visualizations are established within one framework - Unity -
 which therefore allows for a more versatile, accessible and easier-to-use
 toolkit. The tool provides support for the same set of visualizations as IATK
-maninly: scatterplots, parrallel coordinate plots and bar charts.
+mainly: Scatterplots, Parrallel Coordinate Plots and Bar Charts.
 
 \medskip
 
@@ -638,43 +773,70 @@ performance measurements were provided to back this claim.
 
 \noindent In terms of interactions, three types are supported:
 \begin{itemize}
-	\item Pull visualizations from the 2D desktop by using free-hand gestures
+	\item \textbf{Pull visualizations from the 2D desktop} - by using free-hand gestures
 	      or the controller(s) (\cref{fig:hybridaxes} (1, 2, 3)).
-	\item Push visualizations from the immersive environment back to the 2D
-	      desktop (\cref{fig:hybridaxes} (4, 5, 6)).
-	\item Brush datapoints on either side of the environments and see their
-	      counterparts in the other side get highlighted.
+	\item \textbf{Push visualizations from the immersive environment back to the 2D
+		      desktop} (\cref{fig:hybridaxes} (4, 5, 6)).
+	\item \textbf{Brush datapoints on either side of the environments and see their
+		      counterparts in the other side get highlighted}.
 \end{itemize}
 
 
 \noindent The authors hypothesize that enabling visual analytics users to
 smoothly context switch between a 2D screen and 3D immersive experience could
-improve their sense-making abilities. A limited study of the usefulness of the
+improve their sensemaking abilities. A limited study of the usefulness of the
 tool has been conducted on just four participants where they analyzed the data
-in three scenarios: 1) just using 2D
-desktop screen, 2) using a hybrid desktop/AR system and 3) just using the AR
-system. The authors claim that the study results align with their hypothesis.
-However, neither metrics nor sufficient details were provided to prove this
-claim. Nonetheless, the authors mentioned their willingness to perform a more
-rigorous study in the future.
+in three scenarios: 1) just using 2D desktop screen, 2) using a hybrid
+desktop/AR system and 3) just using the AR system. The authors claim that the
+study results align with their hypothesis. However, neither metrics nor
+sufficient details were provided to prove this claim. Nonetheless, the authors
+mentioned their willingness to perform a more rigorous study in the future.
 
-\section{Conclusion}
-We presented an overview of the platforms and tools in the last six years which
-can be used to develop IA experiences. We have come to the conclusion that
-there isn't a single IA toolkit yet that has the same level of versatility,
-visualization-tailored, ease-of-use and support of various data inputs and
-streams such as the widely successful 2D visualization libraries like D3.js.
-The latest IA survey from 2021 \cite{survey_of_ia} also didn't mention any IA
-tool that meets these criteria.
-We argue in favor of visualization-tailored tool that is built on top of
-open-standard XR technologies. We do particularly believe that an open-source
-and free-to-use - i.e. provides a permissive free software license - tool built
-on top of the open-standard OpenXR API, built by the same group that brought
-widely used open-standard graphics API such as OpenGL and Vulkan, can mimic
-the success of conventional 2D visualization libraries such as D3.js.
+\section{Discussion}
+
+Although the aforementioned toolkits and prototypes prove that the field of
+immersive analytics is past its infancy stage, there are still many open
+challenges with no proposed solutions yet.
+
+\medskip
+
+We believe that the following features and functionalities are yet to be
+properly addressed altogether by the current state-of-art IA toolkits:
+
+\begin{itemize}
+	\item \textbf{Built on Open Standards} -
+	\item \textbf{Permissive License} -
+	\item \textbf{Visualization Tailored} - The toolkit should preferably be
+	      built on top of a low-level extended reality library and be tailored
+	      towards visualization tasks only.
+	\item \textbf{Open Source} -
+	\item \textbf{Uniform Workflow} - The toolkit should provide a unified
+	      workflow to build IA experiences for a plethora of platforms.
+	\item \textbf{Versatile Data Input Model} - The toolkit should make very
+	      little assumptions about the format of the input data. In particular,
+	      real-time data should be supported.
+	\item \textbf{API with Bindings to High-level Programming Languages} - The
+	      bindings should be good
+\end{itemize}
+
+Therefore we argue in favor of a visualization-tailored tool that is built on
+top of open-standard XR technologies. We do particularly firmly believe that
+an open-source and free-to-use - i.e. provides a permissive free software
+license - tool built on top of the open-standard OpenXR API can mimic the
+success of conventional 2D visualization libraries such as D3.js.
 Unfortunately, we haven't come across such a framework and the closest to that
 in terms of reliance on open-standard technologies would be VRIA.
 
-\acknowledgments{TO BE WRITTEN AT THE VERY END}
+\section{Conclusion}
+We presented an overview of the platforms, tools and prototypes in the last six
+years which can be used to develop IA experiences. Although IA tools have
+certainly come out of their infancy with several examples of tools addressing
+particular IA challenges well, we have come to the conclusion that there is not
+yet any IA toolkit that has the same level of versatility,
+visualization-tailored, ease-of-use and support of various data inputs and
+streams such as the widely successful 2D visualization libraries like D3.js.
+This is consistent with the latest IA survey from 2021 \cite{survey_of_ia}
+where no tool meeting these criteria was mentioned.
+
 \printbibliography
 \end{document}
