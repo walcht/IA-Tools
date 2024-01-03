@@ -61,7 +61,7 @@ datasets. We then present a comparison study between these toolkits with a
 particular focus on performance, supported devices, accessibility and
 ease-of-use. A set of state-of-the-art tools and techniques, which can be used
 to extend aforementioned toolkits, covering collaboration, interaction and
-navigation topics are then provided. We've come to the conclusion that,
+navigation topics are then provided. We have come to the conclusion that,
 although IA toolkits have come out of their infancy, we are still yet to see an
 IA toolkit that provides a unified workflow allowing for versatile
 visualizations, collaboration support, acceptable performance scalability,
@@ -81,15 +81,22 @@ visualization frameworks such as D3.js.
 
 
 \section{Platforms}
+
+Platforms refer to general-purpose frameworks that provide a uniform workflow
+allowing developers to create XR applications for a plethora of devices. Since
+IA experiences and AR/VR gaming applications share a lot of similarities, game
+engines provide excellent support for developing IA experiences. Two game
+engines are considered; Unity and Unreal Engine. A particular focus is given
+to Unity due to its wide adoptability for XR applications.
+
 \subsection{Unity}
 Unity has a wide adoption in the world of XR thanks to its unified workflow
-and support for various XR platforms - build once, run
-everywhere -. Unity supports an extensive set of XR vendor-specific software
-development kits (hereafter SDK) including: Apple's ARKit, Google's ARCore,
-Microsoft's HoloLens and OpenXR. Following the announcement of Apple's
-mixed reality (MR) headset Vision Pro in Apple's Worldwide Developers
-Conference (WWDC) 2023, Unity was announced to provide native support for
-Vision's Pro operating system VisionOS \cite{web:vision_pro_unity}.
+and support for various XR platforms. Unity supports an extensive set of XR
+vendor-specific software development kits (hereafter SDK) including: Apple's
+ARKit, Google's ARCore, Microsoft's HoloLens and OpenXR. Following the
+announcement of Apple's mixed reality (MR) headset Vision Pro in Apple's
+Worldwide Developers Conference (WWDC) 2023, Unity was announced to provide
+native support for Vision's Pro operating system VisionOS \cite{web:vision_pro_unity}.
 Unity also provides a set of XR packages that are built on top of these vendor
 plugins to add application-level development tools \cite{unity:xr_packages}.
 For instance, AR Foundation is an industry-standard framework that provides
@@ -177,10 +184,9 @@ built-in specification templates for common visualisations such as: Scatter
 plots and bar charts. This further extends the scope of users to include
 those without any technical experience. Although the authors claim that DXR
 provides suitable flexibility, the scope of that flexibility seems to be
-limited, among other things, to providing custom graphical markers, custom
-visualization channels - a visualization channel is a visualisation parameter affected by some
-data dimension(s), such as object color affected by temperature data dimension in some dataset -
-and other visualisation-type specific properties. That limits users to a
+limited to providing, among other things, custom graphical markers, custom
+visualization channels - i.e. a visualisation parameter affected by a
+data dimension - and other visualisation-type specific properties. That limits users to a
 templated and common set of visualisations such as scatter plots, bar charts
 and radial bars. There is also no mention of real-time data support thus
 limiting the use case of DXR to offline data only.
@@ -217,15 +223,15 @@ visualizations.
 
 \smallskip
 
-\noindent Unlike DXR and other toolkits built on top of Unity, IATK doesn't
-render the datapoints (here we don't mean point as in a geometrical point but
+\noindent Unlike DXR and other toolkits built on top of Unity, IATK does not
+render the datapoints (here we do not mean point as in a geometrical point but
 as a representation of a data entry) as Unity game objects and use
 expensive-to-update-at-large-scale object attributes as visualization channels.
 Instead, all the datapoints are visualized within one game object where each
 data point is encoded into a unique vertex by mapping data attributes,
 such as position, color and size, into vertex components such as vertex UV
 coordinates, vertex normal vector and vertex color. This way, actual datapoint
-geometries are created on the GPU resulting in a what-is-claimed-to-be more
+geometries are created on the GPU resulting in a potentially more
 efficient rendering process. This however greatly limits the customizability
 of datapoint marks and the choice of visualization channels especially for
 novice users.
@@ -275,7 +281,7 @@ non-experienced users.
 
 \smallskip
 
-\noindent The authors didn't mention any support for neither real-time data
+\noindent The authors did not mention any support for neither real-time data
 visualization nor local or remote collaboration. It is also worth mentioning
 that for VR, only Scatterplot visualization type is supported. This greatly
 limits the expressiveness for VR users.
@@ -283,7 +289,7 @@ limits the expressiveness for VR users.
 \subsection{VRIA Toolkit}
 Peter et al. introduce VRIA \cite{vria_framework}; a free and open-source \footnote{https://github.com/vriajs}
 framework for building IA experiences in VR. Unlike the aforementioned
-toolkits, VRIA isn't built as an add-on on top of a game engine. Instead, it is
+toolkits, VRIA is not built as an add-on on top of a game engine. Instead, it is
 built upon open-standard Web-based frameworks such as WebVR, A-Frame, React and
 D3.js. All of which are mature, open-source and widely used Web-based
 frameworks and libraries. This allows VRIA applications to be accessible by a
@@ -301,7 +307,7 @@ more experienced users are advised to use the provided low-level API.
 VRIA provides The VRIA Builder; a Web application intended for beginners that
 integrates a GUI and a 3D scene view to rapidly prototype visualization designs
 with instant feedback without having to leave the browser. It is worth
-mentioning that, unlike DXR, this customization GUI isn't part of the VR scene
+mentioning that, unlike DXR, this customization GUI is not part of the VR scene
 and cannot be viewed withing the VR headset. Only the scene view can be
 experienced immersively. However, the authors mentioned their willingness to
 add \textit{in-situ} GUI so that users can build and prototype visualizations
@@ -321,7 +327,7 @@ libraries.
 \smallskip
 
 \noindent In terms of data input, the toolkit only supports tabular data in the form of
-JSON or CSV thus real-time data visualization isn't supported. The authors
+JSON or CSV thus real-time data visualization is not supported. The authors
 expressed their willingness to add support for other forms of data models such as
 geospatial GeoJSON, network and relational models.
 
@@ -332,7 +338,7 @@ visualization within its IA experiences. D3.js is web-base JavaScript
 visualization library that provides a low-level approach to author graphics and
 powerful mechanisms to transform and manipulate data. Since D3.js is widely
 adopted, integrating it within VRIA allows for easier usability and quicker
-authoring of 2D visualizations. However, there wasn't a description of
+authoring of 2D visualizations. However, there was not a description of
 which D3.js functionalities and visualizations are integrable nor any guidance
 on how to integrate it within the VRIA framework.
 
@@ -360,7 +366,7 @@ rendered each frame preferably at 90 FPS to avoid motion sickness. VRIA's
 authors provided visualization benchmarks on a desktop monitor, a desktop
 Oculus Rift CV1 and a smartphone. A scatter-plot visualization type was used
 with sphere graphical marks. The exact set of visualization channels used
-wasn't mentioned neither were attributes of the input data. On the desktop
+was not mentioned neither were attributes of the input data. On the desktop
 monitor and Oculus Lift HMD, performance drops significantly after one
 thousand data points. On smartphone performance starts dropping at one hundred
 data points. This proves that VRIA is not suitable for large dataset
@@ -395,15 +401,66 @@ still limits AR accessibility only to experienced users.
 
 Philipp et al. presented RagRug \cite{ragrug_toolkit}; An open-source
 \footnote{https://github.com/philfleck/ragrug} toolkit built on top of IATK
-for situated analytics. The term "situated analytics" refers to real-time
-data-fed interactive immersive visualizations connected to a meaningful physical
-object in close proximity to the user (hereafter we refer to such an object as
-a \textit{referent}). For instance, a facility manager equipped with an AR HMD,
-when in proximity to an air conditioner with multiple Internet-of-Things (IOT)
+for \textit{situated analytics}, i.e., real-time data-fed interactive immersive
+visualizations connected to a meaningful physical object in close proximity to
+the user (hereafter we refer to such an object as a \textit{referent}).
+For instance, a facility manager equipped with an AR HMD, when in proximity to
+an air conditioner with multiple Internet-of-Things (IoT)
 sensor devices monitoring temperature and other parameters, multiple real-time
-visualizations pop up (\cref{fig:ragrug_example}).
+visualizations pop up (\cref{fig:ragrug_example}). Since it only targets
+situated-analytics usecases, RagRug is an AR-only toolkit.
+A major requirement for IA toolkits is to provide support for a wide variety of
+input and output modalities spanning VR/AR and potentially conventional 2D
+screen displays. RagRug aims, on top of that, to achieve a broad coverage of
+IoT devices.
 
 \smallskip
+
+\noindent The core design goals and features of RagRug are:
+\begin{itemize}
+	\item \textbf{Providing 3D Visual Encoding Capabilities} -
+	      RagRug should provide 3D \textit{visual encoding} capabilities, i.e.,
+	      ways of mapping data dimensions into 3D visual structures. These
+	      capabilities are inherited from IATK and the visual representations
+	      are the same.
+	\item \textbf{Making Visualizations Context Aware} -
+	      The toolkit should provide visualizations that are context-aware with
+	      regards to changes in the real world. This reduces the need to
+	      explicitly specify every minute detail while the user is emerged in
+	      a physical task. For instance, If a referent is moved, the attached
+	      visualization should move along with it or if the lighting conditions
+	      change then visualization color should adapt to such new condition
+	      or if the user performs an invalid action, a notification is
+	      adequately shown. RagRug makes use of IoT devices for collecting data
+	      about the environment and a cloud server for, among other things, the
+	      IoT application logic and depositing data in a database backend
+	      so that the client can query it dynamically.
+	\item \textbf{Supporting a Comprehensive Physical-Virtual Model} -
+	      Information about the characteristics of referents such as location,
+	      shape or identity should not be hard-coded and should instead be
+	      queried from a suitable database. That way the client obtains
+	      relevant data dynamically. This is important for correctly linking
+	      visualizations to referents.
+	\item \textbf{Making the Visualization Pipeline Reactive} -
+	      The pipeline should be re-evaluated after every external change. For
+	      instance, when new data comes, visualizations should be updated or
+	      when a device is turned off, marks in a visualizations should be
+	      changed to reflect that. IATK lacks support for neither real-time
+	      data (since it expects a static dataset input) nor for receiving
+	      events from external sources. To address this, RagRug relies on an
+	      extension on top of IATK to update data points on network events
+	      locally and externally.
+	\item \textbf{Supporting Situated Authoring of Visualizations} -
+	      Since testing situated analytics requires physical interactions with
+	      referents, not allowing for situated authoring may result in a
+	      cumbersome development experience. The authors propose runtime
+	      interpretation of application logic which allows designers to modify
+	      every aspect of the system without having to shut it down. To address
+	      the lack of in-situ authoring from IATK, The authors make use of
+	      PowerUI \footnote{https://github.com/Kulestar/powerui}, an
+	      open-source JavaScript extension for Unity that allows for UI
+	      authoring using CSS, HTML and JavaScript.
+\end{itemize}
 
 \begin{figure}[tb]
 	\centering
@@ -415,6 +472,8 @@ visualizations pop up (\cref{fig:ragrug_example}).
 	\label{fig:ragrug_stack}
 \end{figure}
 
+\medskip
+
 \noindent RagRug consists of two standalone platforms, one for experiencing
 immersive analytics visualizations and interacting with them (hereafter we
 refer to this as the \textit{client}) and one for IoT applications and
@@ -423,53 +482,25 @@ in (\cref{fig:ragrug_stack}) the two platforms make use of the widely adopted
 and lightweight MQTT \footnote{https://mqtt.org/} protocol to communicate
 data and events.
 
-\smallskip
+\medskip
 
-\noindent The core design goals of RagRug are:
-\begin{itemize}
-	\item Providing 3D visual encoding: this is already done by IATK
-	\item Making visualizations context aware:
-	      The tookit should provide visualizations that are context-aware with regards
-	      to changes in the real world. For instance, If a referent is moved, the attached
-	      visualization should move along with it or if the lighting conditions change
-	      then visualization color should adapt to such new conditions or if the user
-	      performs an invalid action a notification is adequately shown. RagRug makes
-	      use of IoT devices for collecting data about the environment and a cloud server
-	      for, among other things, the IoT application logic and depositing data in a
-	      database backend so that the client can query it dynamically.
-	\item Supporting a comprehensive physical-virtual model: Information about the
-	      characteristics of referents such as location, shape or identity should be
-	      queried from a suitable database so that the client obtains relevant data
-	      dynamically. This is important for correctly linking visualizations to
-	      referents.
-	\item Making the visualization pipeline reactive: This comes from the IATK's lack
-	      of support for neither real-time data (since it expects a static dataset input)
-	      nor for receiving events from external sources. To address this, the authors
-	      built an extension on top of IATK to update data points on network events
-	      locally and externally.
-	\item Supporting situated authoring: Since testing situated analytics requires
-	      physical interactions with referents, not allowing for situated authoring will
-	      result in a cumbersome development experience. To address the lack of in-situ
-	      authoring from IATK, The authors make use PowerUI
-	      \footnote{https://github.com/Kulestar/powerui}, an open-source JavaScript extension
-	      for Unity that allows for UI authoring using CSS, HTML and JavaScript. We find
-	      the use of this extension questionable, since it has been deprecated from the
-	      Unity Asset store and the open-source GitHub repository has been inactive for
-	      more than five years.
-\end{itemize}
-
-\smallskip
-
-\noindent The authors provided five application examples with a varied level of
+\noindent The authors showcased five application examples with a varied level of
 sophistication.
 
-\subsection{Wizualization}
-
-TODO: Is it worth it adding this toolkit (that mainly focuses on interactions)?
+We find the use of PowerUI extension questionable, since it has been deprecated
+from the Unity Asset store and the open-source GitHub repository has been
+inactive for more than five years.
 
 \subsection{Comparison}
 
 \section{Prototypes}
+
+While tools refer to systems that aim to allow developers to create IA
+experiences, prototypes are applications that target end-users by providing IA
+experiences attempting to solve particular IA-related and/or domain-specific
+problems. Through the feedback of end-users, prototypes may provide interesting
+insights on how IA tools should address particular challenges.
+
 
 \subsection{Fiesta}
 
@@ -489,7 +520,7 @@ collaboratively explore data in a free-roaming VR environment.
 		Top-down view of a virtual scene in which three participants are
 		conducting visual analytics tasks. (3) A virtual view from the perspective of an
 		observer. (4) Egocentric layout. (5) Planar layout. (6) Authoring panel
-		with a faceted scatterplot on it's right interface. (7) Details on
+		with a faceted scatterplot on its right interface. (7) Details on
 		demand to easily inspect data records. All images are taken from
 		\cite{fiesta_prototype}.}
 	\label{fig:fiesta}
@@ -679,7 +710,7 @@ analytics.
 the authors claim that its applicability domain can be extended to include
 other fields that rely on analysis of complex spatial data for sense-making
 such as the construction industry. However, the use of a wide range of technologies
-and gadgets makes Uplift a specialized solution that we believe isn't yet
+and gadgets makes Uplift a specialized solution that we believe is not yet
 ready for wide deployment. For instance, on top of using Vuforia for tabletop
 tracking, Uplift uses the motion capture Vicon system
 \footnote{https://www.vicon.com/} with a proprietary tracking software and four
@@ -698,18 +729,20 @@ them.
 
 \noindent Uplift expects a static data input therefore, although the topic of
 real-time monitoring of the microgrid was seen as beneficial for operators by
-expert stakeholders, the tool doesn't support real-time immersive analytics.
+expert stakeholders, the tool does not support real-time immersive analytics.
 
 \section{Collaboration Tools and Techniques}
-\subsection{Conclusion}
-TODO: write how using such tools could contribute to enhancing IA experiences.
+
 \section{Interaction Tools and Techniques}
-\subsection{Conclusion}
-TODO: write how using such tools could contribute to enhancing IA experiences.
+
+Interaction is an important component of information visualization. It has even
+been argued that it provides a way to overcome the limits of representation and
+augment a user's cognition \cite{interaction_infovis}.
+
 \section{Navigation Tools and Techniques}
-\subsection{Conclusion}
-TODO: write how using such tools could contribute to enhancing IA experiences.
+
 \section{Transition and Animation Tools and Techniques}
+
 TODO: add introduction with suitable references for importance of animations
 and cross-virtuality transitions.
 \subsection{HybridAxes Tool}
@@ -824,7 +857,7 @@ top of open-standard XR technologies. We do particularly firmly believe that
 an open-source and free-to-use - i.e. provides a permissive free software
 license - tool built on top of the open-standard OpenXR API can mimic the
 success of conventional 2D visualization libraries such as D3.js.
-Unfortunately, we haven't come across such a framework and the closest to that
+Unfortunately, we have not come across such a framework and the closest to that
 in terms of reliance on open-standard technologies would be VRIA.
 
 \section{Conclusion}
