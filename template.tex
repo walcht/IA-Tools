@@ -112,6 +112,17 @@ Toolkit for Unity (MRTK)
 \footnote{https://github.com/MixedRealityToolkit/MixedRealityToolkit-Unity}
 which is designed to further accelerate cross-platform MR development in Unity.
 \subsection{Unreal Engine}
+Unreal Engine is an industry-standard software for creating
+hyper-photorealistic 3D/2D experiences. Thanks to its unified workflow across
+numerous XR vendors such as Oculus, Microsoft, Vive, and PlayStation, it
+provides the required assets to develop XR experiences This engine, like Unity,
+comes with the core comprehensive collection of XR SDKs such as Google's
+ARCore, Apple's ARkit, Magic Leap Microsoft's HoloLens, OpenXR, and Oculus.
+However, Unreal Engine comes with a  less-than-ideal XR documentation relative
+to Unity. This documentation does not provide comprehensive manuals for certain
+XR features. As a result, we cannot guarantee that these functionalities are
+supported. Moreover, Unreal Engine lacks official support for third-party XR
+plugins as is the case with Vuforia.
 \subsection{Comparison}
 Figure \ref{table:1} provides a comparison between the previously discussed
 platforms in terms of support for vendor-specific SDKs and a set of features.
@@ -121,43 +132,45 @@ platforms in terms of support for vendor-specific SDKs and a set of features.
 
 	\begin{tabular}{l c c}
 		\toprule
-		                              & \multicolumn{2}{c}{\textbf{Platform}}                     \\
+		                              & \multicolumn{2}{c}{\textbf{Platform}}                            \\
 		\cmidrule(l){2-3}
-		\textbf{SDKs}                 & Unity 2022 LTS                        & Unreal Engine 5.3 \\
+		\textbf{SDKs}                 & Unity 2022 LTS                        & Unreal Engine 5.3        \\
 		\midrule
-		ARCore                        & X                                     & X                 \\
-		ARKit                         & X                                     & X                 \\
-		Magic Leap                    & X                                     & X                 \\
-		Microsof HoloLens             & X                                     & X                 \\
-		OpenXR                        & X                                     & X                 \\
-		Oculus                        & X                                     & X                 \\
-		WebXR                         & X                                     &                   \\
-		VisionOS                      & X                                     &                   \\
+		ARCore                        & X                                     & X                        \\
+		ARKit                         & X                                     & X                        \\
+		Magic Leap                    & X                                     & X                        \\
+		Microsof HoloLens             & X                                     & X                        \\
+		OpenXR                        & X                                     & X                        \\
+		Oculus                        & X                                     & X                        \\
+		WebXR                         & X                                     &                          \\
+		VisionOS                      & X                                     &                          \\
 		\midrule
-		\textbf{AR-Specific Features} &                                       &                   \\
+		\textbf{AR-Specific Features} &                                       &                          \\
 		\midrule
-		Plane Detection               & X                                     & X                 \\
-		Object Occlusion              & X                                     & X                 \\
-		Environment Probes            & X                                     & X                 \\
-		Face Tracking                 & X                                     & *(ARKit only)     \\
-		Object Tracking               & X                                     & X                 \\
-		Body Tracking                 & X                                     & ? (not mentioned) \\
-		Camera Intrinsics             & X                                     & X                 \\
-		Meshing                       & X                                     & ? (not mentioned) \\
+		Plane Detection               & X                                     & X                        \\
+		Object Occlusion              & X                                     & X                        \\
+		Environment Probes            & X                                     & X                        \\
+		Face Tracking                 & X *(Android\& iOS only)               & X *(Android \& iOS only) \\
+		Image Tracking                & X                                     &                          \\
+		Object Tracking               & X *(iOS only)                         & ?                        \\
+		Body Tracking                 & X *(iOS only)                         & ?                        \\
+		Camera Intrinsics             & X                                     & X                        \\
+		Meshing                       & X                                     & ?                        \\
 		\midrule
-		\textbf{XR Features}          &                                       &                   \\
+		\textbf{XR Features}          &                                       &                          \\
 		\midrule
-		High-level XR Interactions    & X                                     & ? (not mentioned) \\
-		XR Input Simulation           & X                                     & ? (not mentioned) \\
+		High-level XR Interactions    & X                                     & ?                        \\
+		XR Input Simulation           & X                                     & ?                        \\
 		\midrule
-		Vuforia Support               & X                                     &                   \\
+		Vuforia Support               & X                                     &                          \\
 		\bottomrule
 	\end{tabular}
 
 
 	\medskip
 
-	\caption{Per-platform supported SDKs, AR features and 3rd party tools.}
+	\caption{Per-platform supported SDKs, AR features and 3rd party tools. *?:
+		feature could not be found in engine's official documentation.}
 	\label{table:1}
 \end{table}
 
@@ -827,30 +840,89 @@ mentioned their willingness to perform a more rigorous study in the future.
 
 \section{Discussion}
 
-Although the aforementioned toolkits and prototypes prove that the field of
-immersive analytics is past its infancy stage, there are still many open
-challenges with no proposed solutions yet.
-
-\medskip
-
-We believe that the following features and functionalities are yet to be
-properly addressed altogether by the current state-of-art IA toolkits:
+Throughout our survey, we have learned that current state-of-the-art IA
+toolkits have, to some degree, properly addressed a set of important
+challenges. These challenges include:
 
 \begin{itemize}
-	\item \textbf{Built on Open Standards} -
-	\item \textbf{Permissive License} -
-	\item \textbf{Visualization Tailored} - The toolkit should preferably be
-	      built on top of a low-level extended reality library and be tailored
-	      towards visualization tasks only.
-	\item \textbf{Open Source} -
-	\item \textbf{Uniform Workflow} - The toolkit should provide a unified
-	      workflow to build IA experiences for a plethora of platforms.
-	\item \textbf{Versatile Data Input Model} - The toolkit should make very
-	      little assumptions about the format of the input data. In particular,
-	      real-time data should be supported.
-	\item \textbf{API with Bindings to High-level Programming Languages} - The
-	      bindings should be good
+	\item \textbf{Uniform Workflow} - Proposed tookits managed to provide
+	      uniform streamlined workflows that made it easier for users to make
+	      IA experiences.
+	\item \textbf{Ease-of-use} - IA community provided tools for both: novice
+	      users with little or no XR and programming experience; expert users
+	      to allow them to expand the toolkit. The community also experimented
+	      a lot with high-level grammars.
+	\item \textbf{Representation} - Community provided 2D and 3D visualizations
+	      for common plots such as: scatterplots, bar charts and parallel
+	      coordinates plots. In particular, visual representation of connected
+	      datapoints between plots was also focused on.
+	\item \textbf{Interaction} - Community managed to provide interaction tools
+	      that handle, among other things, repositioning, resizing, selection,
+	      details-on-demand, brushing and filtering. These are essential for
+	      better immersive analysis experience.
+	\item \textbf{Collaboration} - Community provided valuable insights about
+	      the behavior of participants in collaborative IA environment both
+	      in co-located space and remotely. The community also experimented
+	      with potential new features and documented their usefulness. These
+	      features include revisiting interaction history, user avatars and
+	      shared brushing tools.
+	\item \textbf{Adequate Authoring Tools} - Adequate authoring tools for
+	      visualizations in the form of GUIs or/and configuration files were
+	      provided.
+	\item \textbf{Low-level API for Extensions} - In most discussed toolkits,
+	      a low-level API allowing for the extension of functionalities is
+	      provided. This has allowed newer toolkits to build upon a
+	      customized version of a previous one \cite{ragrug_toolkit}.
 \end{itemize}
+
+\noindent Although the aforementioned toolkits and prototypes prove that the
+field of immersive analytics is past its infancy stage, there are still many
+open challenges that are not yet properly or not at all addressed. We believe
+that support for the following features by current state-of-the-art IA toolkits
+is still lacking:
+
+\begin{itemize}
+	\item \textbf{Versatile Data Input Model} - Community should keep
+	      assumptions about the input data as minimal as possible. In
+	      particular, real-time data should be supported. Moreover, methods for
+	      efficiently updating visualizations should be adopted as well (e.g.,
+	      when a new datapoint is received, when visual characteristics of some
+	      datapoints change, etc.).
+	\item \textbf{In-depth Performance Statistics} - Community should focus
+	      more on addressing the core challenge of performance. Convincing
+	      performance statistics are still lacking.
+	\item \textbf{Simple Technology Stack} - Community should focus more on
+	      simplifying the technology stack and avoiding characteristics that
+	      may hinder the wide adoption of the IA toolkit (e.g., usage of many
+	      tools from different vendors, usage of no-longer-maintained third
+	      party tools, usage of expensive or hard-to-get hardware, etc.).
+	\item \textbf{Usage of Open-Standard Technologies} - Community should focus more on
+	      using open-standard framework/libraries. We do believe in particular
+	      that the community should experiment with the low-level XR library
+	      OpenXR instead of game-development frameworks.
+	\item \textbf{Clear Licensing Terms} - For a successful wide adoption,
+	      licensing terms for toolkits should be clarified and complex licenses
+	      should be avoided.
+	\item \textbf{Extensive Customization Support} - Community has, to some degree,
+	      successfully addressed the customizability aspect of IA toolkits.
+	      Nonetheless, we argue in favor of providing a low-level API that
+	      allows for a wider range of configuration.
+	\item \textbf{Built-in Collaboration Support} - Community should work more towards
+	      adding built-in collaboration support (i.e., treat collaboration as a first
+	      class citizen). Moreover, aspects of collaboration should be customizable (e.g., user avatars, shared tools, etc.).
+	\item \textbf{Portability to Conventional 2D Screens} - Community should
+	      work more towards adding support, on top of XR technologies, to
+	      conventional 2D screens. We believe this is important since XR
+	      devices are still not yet widely adopted.
+	\item \textbf{Portability to the Web} - Since web-based conventional
+	      visualization libraries have seen a wide adoption, the community
+	      should work more on adding web support.
+	\item \textbf{In-situ Authoring Tools} - Community should work more on
+	      adding in-place (i.e., in real use-case environment) authoring tools.
+\end{itemize}
+
+\textbf{API with Bindings to High-level Programming Languages} - The
+bindings should be good
 
 Therefore we argue in favor of a visualization-tailored tool that is built on
 top of open-standard XR technologies. We do particularly firmly believe that
