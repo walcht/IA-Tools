@@ -124,7 +124,7 @@ XR features. As a result, we cannot guarantee that these functionalities are
 supported. Moreover, Unreal Engine lacks official support for third-party XR
 plugins as is the case with Vuforia.
 \subsection{Comparison}
-Figure \ref{table:1} provides a comparison between the previously discussed
+\autoref{table:1} provides a comparison between the previously discussed
 platforms in terms of support for vendor-specific SDKs and a set of features.
 \begin{table*}
 	\centering
@@ -275,7 +275,7 @@ approach to provide a performance reference point.
 
 \noindent IATK integrates an interactive visualization model within its
 visualization components that allows a set of interactions including filtering,
-brushing and linking (\ref{fig:iatk_visualizations} (8)), details on demand,
+brushing and linking (\autoref{fig:iatk_visualizations} (8)), details on demand,
 animated transitions and attribute-based animations. These interactions are
 implemented in the vertex Shader part of the rendering pipeline which leverages
 the high parallelism nature of the GPU(s) making them particularly responsive
@@ -284,9 +284,9 @@ and efficient at handling large datasets.
 \smallskip
 
 \noindent IATK's high-level GUI provides just a small set of built-in visualization
-types such as a 3D\textbackslash2D Scatterplot (\ref{fig:iatk_visualizations}
-(3)), a parallel coordinates plot (\ref{fig:iatk_visualizations} (5)) or a
-3D\textbackslash2D Scatterplot matrix (\ref{fig:iatk_visualizations} (4, 6, 7)).
+types such as a 3D\textbackslash2D Scatterplot (\autoref{fig:iatk_visualizations}
+(3)), a parallel coordinates plot (\autoref{fig:iatk_visualizations} (5)) or a
+3D\textbackslash2D Scatterplot matrix (\autoref{fig:iatk_visualizations} (4, 6, 7)).
 It also only provides a small set of datapoint geometries. To extend these,
 one has to use the provided low-level API which might limit expressiveness for
 non-experienced users.
@@ -419,7 +419,7 @@ the user (hereafter we refer to such an object as a \textit{referent}).
 For instance, a facility manager equipped with an AR HMD, when in proximity to
 an air conditioner with multiple Internet-of-Things (IoT)
 sensor devices monitoring temperature and other parameters, multiple real-time
-visualizations pop up (\ref{fig:ragrug_example}). Since it only targets
+visualizations pop up (\autoref{fig:ragrug_example}). Since it only targets
 situated-analytics usecases, RagRug is an AR-only toolkit.
 A major requirement for IA toolkits is to provide support for a wide variety of
 input and output modalities spanning VR/AR and potentially conventional 2D
@@ -489,7 +489,7 @@ runtime interpretation of application logic.
 
 \noindent RagRug consists of two standalone platforms, one for experiencing immersive analytics
 visualizations and interacting with them (referred to as \textit{client}) and one for IoT applications and
-databases (referred to as \textit{hub}). As illustrated in (\ref{fig:ragrug_stack}) the two
+databases (referred to as \textit{hub}). As illustrated in (\autoref{fig:ragrug_stack}) the two
 platforms make use of the widely adopted and lightweight MQTT \footnote{https://mqtt.org/} protocol to
 communicate data and events. Another core design of the toolkit is its heavy reliance on a uniform
 dataflow programming model. To achieve that, the hub makes use of Node-Red \footnote{https://nodered.org/};
@@ -575,7 +575,7 @@ collaboratively explore data in a free-roaming VR environment.
 for performance reasons since multiple users can each produce multiple
 visualizations. A 16m\textsuperscript{2} (4m x 4m) room is used to conduct the
 study. Each user is equipped with a VR headset and a backpack containing a
-laptop to which the headset is connected (\ref{fig:fiesta} (1)). To track the
+laptop to which the headset is connected (\autoref{fig:fiesta} (1)). To track the
 headsets' positions, four trackers are positioned in the room; one in each
 corner. An additional desktop PC manages the users' laptops using the Unity
 networking engine Photon. Although the study focuses on physically co-located
@@ -588,14 +588,14 @@ remote collaboration.
 \begin{itemize}
 	\item \textbf{Baseline Visualizations} - The prototype provides three types
 	      of 2D and 3D visualizations: scatterplots, faceted scatterplots
-	      (\ref{fig:fiesta} (6)) and line charts.
+	      (\autoref{fig:fiesta} (6)) and line charts.
 	\item \textbf{Baseline Interactions} - FIESTA relies on standard
 	      interfacing techniques across desktop and VR. It provides grasping
 	      techniques for interacting with UI elements at close range and ranged
 	      pointing techniques using a laser pointer for long range
-	      (\ref{fig:fiesta} (7)).
+	      (\autoref{fig:fiesta} (7)).
 	\item \textbf{Baseline Authoring} - Each user is provided with a movable
-	      panel to author visualizations (\ref{fig:fiesta} (2, 3, 4, 5, 6)).
+	      panel to author visualizations (\autoref{fig:fiesta} (2, 3, 4, 5, 6)).
 	      The panel is split into two sections: on the left, a GUI is provided
 	      to map data dimensions to visualization channels, choosing the
 	      faceting dimension and adjusting the number of facets; the right
@@ -603,7 +603,7 @@ remote collaboration.
 	\item \textbf{Tearing out Visualizations} - Visualizations can be cloned
 	      from the panel by grasping and pulling them away. These cloned
 	      visualizations can then be placed independently in the 3D space
-	      (\ref{fig:fiesta} (2, 4, 5)). Resizing and rescaling operations are
+	      (\autoref{fig:fiesta} (2, 4, 5)). Resizing and rescaling operations are
 	      supported through grasping interactions on widgets placed along
 	      visualization object's axis. Visualizations can also be brought back
 	      into the panel for further editing or be destroyed through a
@@ -617,13 +617,13 @@ remote collaboration.
 	\item \textbf{Pointer and Details on Demand} - A pointer is provided and is
 	      activated through controller's trigger. Details-on-demand tool of the
 	      nearest datapoint is enabled through a touchpad input
-	      (\ref{fig:fiesta} (7)). The pointer can also be used to interact
+	      (\autoref{fig:fiesta} (7)). The pointer can also be used to interact
 	      with the panel's interface through point-and-click interaction for
 	      buttons or point-and-drag interaction for sliders and pickers.
 	\item \textbf{Free Roaming Shared Environment} - To emulate a physically
 	      co-located collaborative environment, Each user is represented by a
 	      uniquely colored avatar and a floating nameplate
-	      (\ref{fig:fiesta} (3)). The same unique color of the user's avatar
+	      (\autoref{fig:fiesta} (3)). The same unique color of the user's avatar
 	      is used for coloring shared brush selection. There is no ownership
 	      system in FIESTA; everything is seen and interactive by all users
 	      except the private brush tool.
@@ -645,7 +645,7 @@ minutes on average. This proves that collaborative visual analysis is possible
 in VR. Participants made use of 3D visualizations although their use was not
 emphasized. They came up with interesting ways to view them such as: scaling a
 3D visualization to room scale and standing in the middle of it; laying 3D
-visualizations around them in an egocentric layout (\ref{fig:fiesta} (4)) and
+visualizations around them in an egocentric layout (\autoref{fig:fiesta} (4)) and
 looking at them from an axis-aligned viewpoint. With 2D visualizations,
 participants preferred placing them in a grid-like layout on the walls. This
 made them more presentable to others at all times contrary to 3D visualizations
@@ -730,18 +730,18 @@ stakeholders feedback sessions are:
 collaborative visual analytics to a multitude of microgrid stakeholders.
 A tabletop display showing a geographical map of the campus grid is used as a
 central platform where users are supposed to gather around and interact with
-widgets placed on top of it (\ref{fig:uplift} (2)). Uplift also makes use of
+widgets placed on top of it (\autoref{fig:uplift} (2)). Uplift also makes use of
 tangible widgets which are physical and interactive elements that control
-visualization parameters (for instance by affecting sliders) (\ref{fig:uplift}
+visualization parameters (for instance by affecting sliders) (\autoref{fig:uplift}
 (4)). The prototype also relies on scaled-down physical models of buildings
 that are translucent which allows the color of the surface on which they are
 placed to be used as an appealing visualization channel
-(\ref{fig:uplift} (1)). If these models are picked up, AR will overlay
-relevant data about them (\ref{fig:uplift} (6)). AR is used to display
+(\autoref{fig:uplift} (1)). If these models are picked up, AR will overlay
+relevant data about them (\autoref{fig:uplift} (6)). AR is used to display
 multiple 3D data types on top of the tabletop and 2D graphs alongside legends
-around it (\ref{fig:uplift} (5)). On top of these, Uplift uses a large display
+around it (\autoref{fig:uplift} (5)). On top of these, Uplift uses a large display
 to either replicate the content of the tabletop or show additional
-visualizations (\ref{fig:uplift} (2)).
+visualizations (\autoref{fig:uplift} (2)).
 
 \medskip
 
@@ -793,7 +793,7 @@ and cross-virtuality transitions.
 \subsection{HybridAxes Tool}
 Mohammad et al. introduced HybridAxes \cite{hybridaxes_tool}; an extension of
 IATK toolkit that allows for a smooth interoperability between 2D desktop
-visualizations and immersive reality experiences (\ref{fig:hybridaxes}).
+visualizations and immersive reality experiences (\autoref{fig:hybridaxes}).
 
 \medskip
 
@@ -814,7 +814,7 @@ provide a smooth transition by reducing visualization generation delays. It
 claims to do that by anticipating the user's interactions in both modes and
 preemptively generating
 visualizations in the background. Moreover, the authors stated that providing
-a clear signaling of transition status either through visual (\ref{fig:hybridaxes} (2, 5)) or
+a clear signaling of transition status either through visual (\autoref{fig:hybridaxes} (2, 5)) or
 controller-related feedback is a core design requirement for the tool.
 Keeping the same values for the visualization channels, if possible, when
 transitioning a visualization between the two experiences is also stated as
@@ -852,9 +852,9 @@ performance measurements were provided to back this claim.
 \noindent In terms of interactions, three types are supported:
 \begin{itemize}
 	\item \textbf{Pull visualizations from the 2D desktop} - by using free-hand gestures
-	      or the controller(s) (\ref{fig:hybridaxes} (1, 2, 3)).
+	      or the controller(s) (\autoref{fig:hybridaxes} (1, 2, 3)).
 	\item \textbf{Push visualizations from the immersive environment back to the 2D
-		      desktop} (\ref{fig:hybridaxes} (4, 5, 6)).
+		      desktop} (\autoref{fig:hybridaxes} (4, 5, 6)).
 	\item \textbf{Brush datapoints on either side of the environments and see their
 		      counterparts in the other side get highlighted}.
 \end{itemize}
