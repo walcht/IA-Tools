@@ -505,15 +505,16 @@ supports collaborative situated analytics.
 
 \medskip
 
-\noindent Although we do understand the importance of having a unified programming model, We find the use of
-PowerUI, for the sole reason of providing a JavaScript-based tool for authoring Unity runtime UI,
+\noindent Although we do understand the importance of having a unified programming model, we find the use of
+PowerUI, for the sole reason of providing a JavaScript interface for authoring Unity runtime UI,
 questionable. Unity provides a variety of built-in runtime UI authoring tools that are mature,
-better documented, and proven by the community. Unfortunately, these tools rely on Csharp for their logic
-which if adopted, the unified programming model is no longer satisfied. Another concern is that PowerUI has
+better documented, and proven by the community \footnote{https://docs.unity3d.com/Manual/UI-system-compare.html}.
+Unfortunately, these tools rely on Csharp for their logic which if adopted, the unified programming model is
+no longer satisfied. Another concern is that PowerUI has
 been deprecated from the Unity Asset store and the open-source GitHub repository has not been active, except
-for a README file change, for more than seven years \footnote{https://github.com/Kulestar/powerui}. We
-therefore argue for relaxing the constraint of a unified programming model in favor of less technology-stack
-complexity and reliance on established built-in tools.
+for a single text file change, for more than seven years \footnote{https://github.com/Kulestar/powerui}. We
+therefore argue for relaxing the constraint of a unified programming model in favor of a simpler 
+technology-stack and reliance on established built-in tools.
 
 \smallskip
 
@@ -525,7 +526,7 @@ looking for a more advanced, out-of-the-usual usecase.
 
 \noindent In-depth statistics for the performance of the RagRug toolkit was not provided. Instead, a single
 statistic that used a HoloLens 2 as a client, a notebook computer as a hub and a 5GHz-band wireless network
-was provided. However, the event propagation time was the only provided metric by this statistic.
+was provided. However, the event propagation time was the only measured metric by this statistic.
 This leaves the question of the usability of the toolkit in production environments with various data loads
 largely unanswered.
 
@@ -677,7 +678,7 @@ co-located environment is needed to further study these behaviours.
 inherently predefined - the users did not have the option to arrange such
 surfaces. A similar system in which they have to ability to define their own
 surfaces may further expand these findings. Furthermore, FIESTA is a VR-only
-prototype therefore these findings may not be applicable to IA experiences
+prototype therefore these findings may not be entirely applicable to IA experiences
 where AR is used.
 
 
