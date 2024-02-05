@@ -49,25 +49,23 @@ Applications Development}
 %  \caption{Lookit! Lookit!}
 %}
 
-\abstract{This paper presents an overview of the latest state-of-the-art
-platforms and toolkits which can be used to develop immersive analytics (IA)
-experiences. Initially, a short overview of Unity3D and Unreal Engine with a
-comparison of supported eXtended Reality (XR) features and third party tools
-is provided. After that, we present an overview associated with a critique of
-what we believe are the major XR development toolkits. For each toolkit we
-discuss the set of what we think are important features they provide or lack
-such as the support for collaboration, interactions, real-time data and large
-datasets. We then present a comparison study between these toolkits with a
-particular focus on performance, supported devices, accessibility and
-ease-of-use. A set of state-of-the-art tools and techniques, which can be used
-to extend aforementioned toolkits, covering collaboration, interaction and
-navigation topics are then provided. We have come to the conclusion that,
+\abstract{This paper presents an overview of the latest state-of-the-art platforms and toolkits which can be
+used to develop immersive analytics (IA) experiences. Initially, a short overview of Unity3D and Unreal
+Engine with a comparison of supported eXtended Reality (XR) features and third party tools is provided. After
+that, we present an overview associated with a critique of what we believe are the major XR development
+toolkits. For each toolkit we discuss the set of what we think are important features they provide or lack
+such as the support for collaboration, interactions, real-time data and large datasets. Throughout the paper,
+newly introduced toolkits are compared against previous ones in regards to performance, supported devices,
+accessibility, and ease-of-use. A set of state-of-the-art tools and techniques, which can be used to extend
+aforementioned toolkits, covering collaboration, interaction and
+navigation topics are then provided. We then discuss two IA prototypes that provide
+important insights through user feedback. We have come to the conclusion that,
 although IA toolkits have come out of their infancy, we are still yet to see an
 IA toolkit that provides a unified workflow allowing for versatile
 visualizations, collaboration support, acceptable performance scalability,
 real-time data support and support for a plethora of XR and non-XR devices
 which has the potential to replicate the wide success of conventional
-visualization frameworks such as D3.js.
+2D visualization frameworks such as D3.js.
 } % end of abstract
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -78,7 +76,32 @@ visualization frameworks such as D3.js.
 \firstsection{Introduction}
 \maketitle
 
+Immersive analytics was defined by Chandler et al. as "an emerging research thrust investigating how new
+interaction and display technologies can be used to support analytical reasoning and decision making"
+\cite{ia}. Recent technological breakthroughs and major competitors providing more affordable immersive head
+mounted displays (hereafter HMD) have sparked further development into this field
+\cite{web:vision_pro_unity}. This has in turn led to the rise of proposed IA experience development toolkits.
+The latest survey of IA provided an exhaustive survey of IA works from 1991 to 2021 \cite{survey_of_ia}.
+However, to the best of our knowledge, our paper is the first that delves into the technical details about
+extensively used state-of-the-art IA platforms and suggested toolkits. We aim to identity the challenges
+the IA community managed to address and the open challenges that we think are important for IA toolkits
+to mimic the wide adoption of conventional 2D visualisations libraries. In particular, we want to provide
+a quick overview of the currently available IA toolkits, what each of them lacks, and propose directions
+to the IA community that we think are worth exploring.
 
+
+\section{Methodology}
+
+\noindent Our main goal is to analyse the literature to give an overview and a comparison of 
+state-of-the-art IA toolkits and techniques. It is important to note that our objective is \textit{not} to
+include the whole IA literature in the last four to six years. That would be way out of the scope of our
+work. For literature selection, we have only used the \textit{IEEE Xplore Digital Library}. We have filtered
+the search results to only include \textit{Conference} and \textit{Journal} types of papers. We have also filtered
+the publication year to the range 2018 - 2024. We used the search terms \textit{immersive analytics},
+\textit{immersive visualisation} which yielded 260, 1826 respectively. Results were sorted by
+\textit{Relevance} and for each result we only went through the first 100 papers and picked what we thought
+were relevant papers based on the title and the abstract. We then skimmed through these papers to Further
+reduce their numbers by focusing more on toolkits and tools rather than prototypes.
 
 \section{Platforms}
 
@@ -87,7 +110,7 @@ allowing developers to create XR applications for a plethora of devices. Since
 IA experiences and AR/VR gaming applications share a lot of similarities, game
 engines provide excellent support for developing IA experiences. Two game
 engines are considered; Unity and Unreal Engine. A particular focus is given
-to Unity due to its wide adoptability for XR applications.
+to Unity due to its wide adoption for XR applications.
 
 \subsection{Unity}
 Unity has a wide adoption in the world of XR thanks to its unified workflow
@@ -131,7 +154,7 @@ platforms in terms of support for vendor-specific SDKs and a set of features.
 	\centering
 	\includegraphics[width=\columnwidth]{dxr_toolkit_00}
     \caption{On the left is a declarative specification file in JSON format. On the right is the resulting
-    scatterplot visualization. In the \textit{data} attribute, the source input data is provided. The mark
+    scatter plot visualization. In the \textit{data} attribute, the source input data is provided. The mark
     type is the built-in type \textit{cube}. Five visualization channels (or visual encodings) are used:
     two nominal data dimensions mapped to \textit{X} and \textit{Y} positions; ordinal time dimension mapped
     to \textit{Z} position; \textit{color} mapped to quantitative weight dimension; and \textit{size}
@@ -199,7 +222,7 @@ support for multiple major XR devices.
 \noindent Sicat et al. proposed \textit{DXR} \cite{dxr_toolkit}; an open-source \cite{dxr:repo} IA toolkit
 built on top of Unity. The toolkit provides fast prototyping and iteration for non-experienced users, i.e.,
 users with little or no programming knowledge in XR and Unity. DXR targets AR/VR devices and provides highly
-customizable datapoints (hereafter referred to as \textit{marks}). 
+customizable data-points (hereafter referred to as \textit{marks}). 
 
 \noindent The core design goals and features of DXR include:
 \begin{itemize}
@@ -222,7 +245,7 @@ customizable datapoints (hereafter referred to as \textit{marks}).
     those with little technical experience.
 	\item \textbf{Providing a GUI for in-situ Authoring} - On top of the specification file, DXR also
     provides an Graphical User Interface (hereafter GUI) for an even easier and more templated in-situ
-        authoring experience \autoref{fig:dxr_gui}. This further broadens the range of users to include those with no technical knowledge.
+        authoring experience. This further broadens the range of users to include those with no technical knowledge.
 \end{itemize}
 
 \medskip
@@ -248,20 +271,10 @@ specification file using a file browser in runtime or easily select a template f
 \noindent Moreover, further developments with new devices may be difficult to implement due to DXR's source
 code not receiving any updates for more than six years \cite{dxr:repo}.
 
-\begin{figure}[t!]
-	\centering
-	\includegraphics[width=\columnwidth]{dxr_gui}
-    \caption{DXR GUI only allowing modification of the basic properties of the visualization specification.
-    Image is taken from \cite{dxr:repo} and is available in the public domain.}
-    \label{fig:dxr_gui}
-\end{figure}
-
 \subsection{IATK Toolkit}
-Maxime et al. introduced IATK \cite{iatk_toolkit}; an open-source
-\footnote{https://github.com/MaximeCordeil/IATK} software
-package for Unity that provides both a high-level Unity-editor-integrated GUI
-for simple authoring and a low-level C-sharp and JavaScript API for
-fine-grained authoring and extending the visualizations.
+Maxime et al. introduced IATK \cite{iatk_toolkit}; an open-source \cite{iatk:repo} software package for Unity
+that provides both a high-level Unity-editor-integrated GUI for simple authoring and a low-level C-sharp
+and JavaScript API for fine-grained authoring and extending the visualizations.
 
 \smallskip
 
@@ -279,36 +292,36 @@ visualizations.
 \smallskip
 
 \noindent Unlike DXR and other toolkits built on top of Unity, IATK does not
-render the datapoints (here we do not mean point as in a geometrical point but
+render the data-points (here we do not mean point as in a geometrical point but
 as a representation of a data entry) as Unity game objects and use
 expensive-to-update-at-large-scale object attributes as visualization channels.
-Instead, all the datapoints are visualized within one game object where each
+Instead, all the data-points are visualized within one game object where each
 data point is encoded into a unique vertex by mapping data attributes,
 such as position, color and size, into vertex components such as vertex UV
-coordinates, vertex normal vector and vertex color. This way, actual datapoint
+coordinates, vertex normal vector and vertex color. This way, actual data-point
 geometries are created on the GPU resulting in a potentially more
 efficient rendering process. This however greatly limits the customizability
-of datapoint marks and the choice of visualization channels especially for
+of data-point marks and the choice of visualization channels especially for
 novice users.
 
 \smallskip
 
 \noindent According to the authors' performance statistics, on VR less than
-90 FPS is observed at two million datapoints and on AR less than 60 FPS is
-observed at just a thousand datapoints. However, one can subjectively claim
+90 FPS is observed at two million data-points and on AR less than 60 FPS is
+observed at just a thousand data-points. However, one can subjectively claim
 that the performance on AR HoloLens headset remains acceptable up-to ten
-thousand datapoints at which 41 FPS is achieved. Although the authors provided
+thousand data-points at which 41 FPS is achieved. Although the authors provided
 FPS statistics for Oculus CV1, Meta2 and HoloLens devices, no performance
-statistics were provided for the alternative game-object-based datapoint
+statistics were provided for the alternative game-object-based data-point
 approach to provide a performance reference point.
 
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\columnwidth]{iatk}
 	\caption[Caption for IATK]{IATK supported visualization types. (1) 3D
-		connected dots. (2) 3D bar chart. (3) 3D Scatterplot. (4, 7) 3D
-		Scatterplot matrix. (5) Parallel Coordinates Plots. (6) 2D Scatterplot
-		matrix. (8) Linked visualizations. The images are from \textsuperscript{1}
+		connected dots. (2) 3D bar chart. (3) 3D Scatter plot. (4, 7) 3D
+		Scatter plot matrix. (5) Parallel Coordinates Plots. (6) 2D Scatter plot
+        matrix. (8) Linked visualizations. The images are from \cite{iatk:repo}
 		and are in the public domain.}
 	\label{fig:iatk_visualizations}
 \end{figure}
@@ -327,10 +340,10 @@ and efficient at handling large datasets.
 \smallskip
 
 \noindent IATK's high-level GUI provides just a small set of built-in visualization
-types such as a 3D\textbackslash2D Scatterplot (\autoref{fig:iatk_visualizations}
+types such as a 3D\textbackslash2D scatter plot (\autoref{fig:iatk_visualizations}
 (3)), a parallel coordinates plot (\autoref{fig:iatk_visualizations} (5)) or a
-3D\textbackslash2D Scatterplot matrix (\autoref{fig:iatk_visualizations} (4, 6, 7)).
-It also only provides a small set of datapoint geometries. To extend these,
+3D\textbackslash2D scatter plot matrix (\autoref{fig:iatk_visualizations} (4, 6, 7)).
+It also only provides a small set of data-point geometries. To extend these,
 one has to use the provided low-level API which might limit expressiveness for
 non-experienced users.
 
@@ -338,81 +351,80 @@ non-experienced users.
 
 \noindent The authors did not mention any support for neither real-time data
 visualization nor local or remote collaboration. It is also worth mentioning
-that for VR, only Scatterplot visualization type is supported. This greatly
+that for VR, only Scatter plot visualization type is supported. This greatly
 limits the expressiveness for VR users.
 
 \subsection{VRIA Toolkit}
-Peter et al. introduce VRIA \cite{vria_framework}; a free and open-source \footnote{https://github.com/vriajs}
+Peter et al. introduced VRIA \cite{vria_framework}; a free and open-source \cite{vria:repo}
 framework for building IA experiences in VR. Unlike the aforementioned
 toolkits, VRIA is not built as an add-on on top of a game engine. Instead, it is
-built upon open-standard Web-based frameworks such as WebVR, A-Frame, React and
+built upon open-standard Web-based frameworks such as WebVR (now called WebXR instead), A-Frame, React and
 D3.js. All of which are mature, open-source and widely used Web-based
 frameworks and libraries. This allows VRIA applications to be accessible by a
 plethora of VR and non-VR devices.
 
-\smallskip
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{vria_toolkit}
+    \caption{Top: Examples of supported 3D/2D visualizations. Bottom: VRIA Builder.
+    Image from \cite{vria:repo} and is available in the public domain.}
+	\label{fig:vria_toolkit}
+\end{figure}
 
-\noindent The toolkit is designed to be accessible to novices and experts
-alike. Similar to DXR, VRIA makes use of a declarative grammar similar to
-Vega-Lite \cite{vega_lite} which allows users to create custom visualizations based on a configuration
-file. However, this visualization configuration file is only required for
-basic functionalities. For extra custom functionalities such as a custom set of
-visualization channels, interactions, graphical marks or visualization types,
-more experienced users are advised to use the provided low-level API.
-VRIA provides The VRIA Builder; a Web application intended for beginners that
-integrates a GUI and a 3D scene view to rapidly prototype visualization designs
-with instant feedback without having to leave the browser. It is worth
-mentioning that, unlike DXR, this customization GUI is not part of the VR scene
-and cannot be viewed withing the VR headset. Only the scene view can be
-experienced immersively. However, the authors mentioned their willingness to
-add \textit{in-situ} GUI so that users can build and prototype visualizations
-iteratively without having to remove the headset and switch back to desktop
-screen.
+\medskip
 
-\smallskip
+\noindent The core design goals and features of VRIA include:
+\begin{itemize}
+    \item \textbf{Employing a Vega-Lite-like Declarative Grammar} - Similar to DXR, VRIA makes use of a
+    declarative grammar similar to Vega-Lite \cite{vega_lite} which allows users to create custom
+    visualizations based on a configuration file. This makes the toolkit accessible to novice users.
+    However, this visualization configuration file only provides support for basic functionalities.
+    \item \textbf{Provides High Portability and Integrability} - Thanks to its composable structure, the
+    toolkit can be integrated into other existing 2D or immersive visualization applications. For instance,
+    VRIA's visualizations can be overlaid on top of another A-Frame scene. VRIA has support for collaborative
+    immersive analytics through either the high-level networking abstraction layer provided by the
+    open-source Networked A-Frame component or by using the provided API with lower-level networking
+    libraries. 
+    \item \textbf{Provides a Visualization Creation Tool} - VRIA provides The VRIA Builder; a Web application
+    intended for beginners that integrates a GUI and a 3D scene view to rapidly prototype visualization
+    designs with instant feedback without having to leave the browser. It is worth mentioning that, unlike
+    DXR, this customization GUI is not part of the VR scene and cannot be viewed withing the VR headset.
+    Only the scene view can be experienced immersively. However, the authors mentioned their willingness
+    to add in-situ GUI so that users can build and prototype visualizations iteratively without having
+    to remove the headset and switch back to desktop screen (\autoref{fig:vria_toolkit} (Bottom)).
+    \item \textbf{Provides a Low-level API} - For extra custom functionalities such as a custom set of
+    visualization channels, interactions, graphical marks or visualization types, more experienced users
+    are advised to use the provided low-level API.
+\end{itemize}
 
-\noindent Thanks to its composable structure, the toolkit can be integrated into
-other existing 2D or immersive visualization applications. For instance,
-VRIA's visualizations can be overlaid on top of another A-Frame scene.
-VRIA has support for collaborative immersive analytics through either the
-high-level networking abstraction layer provided by the open-source Networked
-A-Frame component or by using the provided API with lower-level networking
-libraries.
+\medskip
 
-\smallskip
+\noindent In terms of data input, the toolkit only supports tabular data in the form of JSON or CSV thus
+real-time data visualization is not supported. The authors expressed their willingness to add support for
+other forms of data models such as geospatial GeoJSON, network, and relational models.
 
-\noindent In terms of data input, the toolkit only supports tabular data in the form of
-JSON or CSV thus real-time data visualization is not supported. The authors
-expressed their willingness to add support for other forms of data models such as
-geospatial GeoJSON, network and relational models.
+\medskip
 
-\smallskip
+\noindent The authors stated that VRIA offers the option to integrate D3.js \cite{d3_js} visualization within its IA
+experiences. D3.js is web-base JavaScript visualization library that provides a low-level approach to author
+graphics and powerful mechanisms to transform and manipulate data. Since D3.js is widely adopted, integrating
+it within VRIA allows for easier usability and quicker authoring of 2D visualizations. However, there was no
+mention of which D3.js functionalities and visualizations are supported nor any guidance on how to integrate
+them within the VRIA framework.
 
-\noindent The authors stated that VRIA offers the option to integrate D3.js
-visualization within its IA experiences. D3.js is web-base JavaScript
-visualization library that provides a low-level approach to author graphics and
-powerful mechanisms to transform and manipulate data. Since D3.js is widely
-adopted, integrating it within VRIA allows for easier usability and quicker
-authoring of 2D visualizations. However, there was not a description of
-which D3.js functionalities and visualizations are integrable nor any guidance
-on how to integrate it within the VRIA framework.
+\medskip
 
-\smallskip
+\noindent Furthermore, seasoned developers seeking for a more custom experience are forced to deal with two
+separate tools to author custom visualizations; the visualization configuration file specified in a
+declarative language and the API specified in JavaScript. We believe that it would be easier for the end
+users if VRIA provided more customizability through the visualization configuration file instead of just
+providing very basic functionalities. Although it is understandable that A-Frame simplifies the process of
+creating VR experiences on the web relative to the lower level Three.js library, we question its necessity.
+A-Frames' functionalities could be directly implemented in Three.js thus reducing and simplifying the VRIA
+stack. The authors stated their intention to work at the Three.js level directly without the usage of any
+further abstraction libraries.
 
-\noindent More experienced users seeking for a more custom experience are
-forced to deal with two separate tools to author custom visualizations;
-the visualization configuration file specified in a declarative language and
-the API specified in JavaScript. We believe that it would be easier for the end users if VRIA
-provided more customizability through the visualization configuration file instead of just
-providing very basic functionalities.
-Although it is understandable that A-Frame simplifies the process of creating
-VR experiences on the web relative to the lower level Three.js library, we
-question its necessity. A-Frames' functionalities could be directly implemented
-in Three.js thus reducing and simplifying the VRIA stack. The authors stated
-their intention to work at the Three.js level directly without the usage of any further
-abstraction libraries.
-
-\smallskip
+\medskip
 
 \noindent Whenever 3D graphics are mentioned in the context of web browsers,
 performance implementations are one of the most worrying aspects. This is
@@ -433,14 +445,12 @@ rendering operations. We therefore question such comparisons of performance
 benchmarks. This is later Web-based XR solutions do not compete,
 in terms of performance, with game-engine based solutions.
 
-\smallskip
+\medskip
 
-\noindent VRIA only supports Cartesian plots but the authors expressed their
-willingness to add support for other coordinate systems including geographical
-and spherical coordinates.
-Moreover, although the authors showcased the ease of integrating VRIA with
-AR.js to target AR experiences, the absence of an out-of-box support for VRIA
-still limits AR accessibility only to experienced users.
+\noindent VRIA only supports Cartesian plots but the authors expressed their willingness to add support for
+other coordinate systems including geographical and spherical coordinates. Moreover, although the authors
+showcased the ease of integrating VRIA with AR.js to target AR experiences, the absence of an out-of-box
+support for VRIA still limits AR accessibility only to experienced users.
 
 \subsection{RagRug Toolkit}
 
@@ -448,14 +458,13 @@ still limits AR accessibility only to experienced users.
 	\centering
 	\includegraphics[width=\columnwidth]{ragrug_example}
 	\caption[Caption for RagRug]{Example of situated analytics using RagRug
-		toolkit. Multiple visualizations are shown and are fed real-time
-		Images from \textsuperscript{4} and is in the public domain. }
-		temperature data from nearby IOT sensor devices.
+		toolkit. Multiple visualizations are shown and are fed real-time temperature data from nearby IOT sensor devices.
+        Images from \cite{ragrug:repo} and is in the public domain. }
 	\label{fig:ragrug_example}
 \end{figure}
 
 Philipp et al. presented RagRug \cite{ragrug_toolkit}; An open-source
-\footnote{https://github.com/philfleck/ragrug} toolkit built on top of IATK
+\cite{ragrug:repo} toolkit built on top of IATK
 for \textit{situated analytics}, i.e., real-time data-fed interactive immersive
 visualizations connected to a meaningful physical object in close proximity to
 the user (hereafter we refer to such an object as a \textit{referent}).
@@ -582,12 +591,46 @@ developers, is important in determining the validity of the claimed characterist
 ease of usability, ease of customizability, etc.).
 
 \subsection{Wizualization Toolkit}
-\noindent Andreas et al. proposed Wizualization \cite{wizualization_toolkit}; an open-source \footnote{https://github.com/Wizualization/wizualization}
+\noindent Andreas et al. proposed Wizualization \cite{wizualization_toolkit}; an open-source \cite{wizualization:repo}
 toolkit with a heavy focus on state-of-the-art multimodal speech, gesture, and touch interaction techniques.
-Similar to VRIA,
+Similar to VRIA, Wizualization is built on open-standard web technologies relying on WebXR standard for XR
+input and output modalities and Web Speech API for speech capabilities. Wizualization relies on a magic
+metaphor for authoring visualizations.
 
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{wizualization_toolkit}
+    \caption{Left: Wizualization's Spellbook containing predefined spells, selection tool for subsequent
+    spells, and a history of executed spells. Middle: a collection of spells (mid-air gestures and spoken
+    words). Right: Wizualization combines spell blocks to create Optomancy JSON specification. Images from
+    \cite{wizualization_toolkit}.}
+	\label{fig:wizualization_toolkit}
+\end{figure}
 
-\subsection{Comparison}
+\noindent The core design goals and features of Wizualization include:
+\begin{itemize}
+    \item \textbf{Support for Multimodal Input} - In Wizualization, different input modalities can
+    accomplish the same task. This allows for a great flexibility especially since speech techniques may not
+    be always appropriate \cite{limits_of_speech_recognition}.
+    \item \textbf{Providing a Notebook of Predefined Gestures/Spoken Words} - Wizualization provides a
+    runtime-accessible notebook and dictionary (\autoref{fig:wizualization_toolkit} (Left)) that provides a collection of mid-air gestures and spoken
+    commands (hereafter we refer to such collection as \textit{spells}). This makes it a learning tool for
+    available spells. It also provides a variable selection tool for subsequent spells and a history of used
+    spells in the session.
+    \item \textbf{Relying on a High Level Grammar of Graphics} - Wizualization introduced \textit{Optomancy};
+    a set of grammar of graphics for the web that accepts a partial JSON specification file and compiles it
+    into a full specification with sane defaults for missing properties (\autoref{fig:wizualization_toolkit} (Right)).
+	\item \textbf{Supporting Remote and Co-located Collaboration} - Wizualization provides inherent
+    asynchronous collaboration support where users can join a room and see existing state from previous
+    sessions. Depending on the capabilities of the device they join with, users can even modify the scene.
+    \item \textbf{Runtime Dataset Loading} - New datasets can be loaded at runtime within the same scene.
+    \item \textbf{Support for Incremental Authoring} - Wizualization provides visual feedback for spells even
+    if they only provide a partial specification to Optomancy.
+\end{itemize}
+
+\noindent The authors have not provided any empirical evidence to support the utility of the approaches
+implemented by the toolkit. Furthermore, no performance statistics were provided which we think are a crucial
+aspect of a 3D web-based application due to the limitations the web imposes.
 
 \section{Prototypes}
 
@@ -601,8 +644,7 @@ insights on how IA tools should address particular challenges.
 \subsection{Fiesta}
 
 \noindent Benjamin et al. built FIESTA \cite{fiesta_prototype}; an open-source
-\footnote{https://github.com/benjaminchlee/FIESTA} team-based analysis
-prototype that allows users to create, manipulate and share data visualizations
+\cite{fiesta:repo} team-based analysis prototype that allows users to create, manipulate and share data visualizations
 in an unconstrained and physically co-located VR-only environment. The authors
 state that the main objective behind developing FIESTA is to study how groups
 collaboratively explore data in a free-roaming VR environment.
@@ -616,7 +658,7 @@ collaboratively explore data in a free-roaming VR environment.
 		Top-down view of a virtual scene in which three participants are
 		conducting visual analytics tasks. (3) A virtual view from the perspective of an
 		observer. (4) Egocentric layout. (5) Planar layout. (6) Authoring panel
-		with a faceted scatterplot on its right interface. (7) Details on
+		with a faceted scatter plot on its right interface. (7) Details on
 		demand to easily inspect data records. All images are taken from
 		\cite{fiesta_prototype}.}
 	\label{fig:fiesta}
@@ -638,7 +680,7 @@ remote collaboration.
 \noindent The core design goals and features of FIESTA are:
 \begin{itemize}
 	\item \textbf{Baseline Visualizations} - The prototype provides three types
-	      of 2D and 3D visualizations: scatterplots, faceted scatterplots
+	      of 2D and 3D visualizations: scatter plots, faceted scatter plots
 	      (\autoref{fig:fiesta} (6)) and line charts.
 	\item \textbf{Baseline Interactions} - FIESTA relies on standard
 	      interfacing techniques across desktop and VR. It provides grasping
@@ -664,10 +706,10 @@ remote collaboration.
 	      visible to the user while the shared brush allows for selections
 	      which are visible to all users. Brushing is linked across multiple
 	      visualizations through color channel, i.e. contrary to other tools
-	      where lines are used to visualize linked datapoints.
+	      where lines are used to visualize linked data-points.
 	\item \textbf{Pointer and Details on Demand} - A pointer is provided and is
 	      activated through controller's trigger. Details-on-demand tool of the
-	      nearest datapoint is enabled through a touchpad input
+	      nearest data-point is enabled through a touchpad input
 	      (\autoref{fig:fiesta} (7)). The pointer can also be used to interact
 	      with the panel's interface through point-and-click interaction for
 	      buttons or point-and-drag interaction for sliders and pickers.
@@ -735,11 +777,11 @@ where AR is used.
 \subsection{Uplift}
 Barrett et al. proposed Uplift \cite{uplift_prototype}; an in-place
 collaborative visual analytics prototype targeting users with diverse
-expertise in the domain of microgrids. Uplift is designed for casual visual
+expertise in the domain of micro-grids. Uplift is designed for casual visual
 analysis use-cases; i.e. to be used to easily identify, in a relatively short
 time, key patterns in complex visualized data. The requirements for the
 prototype were initially provided and subsequently modified, through multiple
-feedback sessions, by a wide range of stakeholders including microgrid project
+feedback sessions, by a wide range of stakeholders including micro-grid project
 and energy systems experts.
 
 \begin{figure}[tb]
@@ -778,7 +820,7 @@ stakeholders feedback sessions are:
 \medskip
 
 \noindent Uplift relies more than just AR headsets to bring casual
-collaborative visual analytics to a multitude of microgrid stakeholders.
+collaborative visual analytics to a multitude of micro-grid stakeholders.
 A tabletop display showing a geographical map of the campus grid is used as a
 central platform where users are supposed to gather around and interact with
 widgets placed on top of it (\autoref{fig:uplift} (2)). Uplift also makes use of
@@ -797,12 +839,12 @@ visualizations (\autoref{fig:uplift} (2)).
 \medskip
 
 \noindent Through the feedback of 16 participants who tried the prototype,
-Uplift was proven to be potentially useful for microgrid-related data
+Uplift was proven to be potentially useful for micro-grid-related data
 analytics.
 
 \medskip
 
-\noindent Although Uplift was designed for microgrid-related systems,
+\noindent Although Uplift was designed for micro-grid-related systems,
 the authors claim that its applicability domain can be extended to include
 other fields that rely on analysis of complex spatial data for sense-making
 such as the construction industry. However, the use of a wide range of technologies
@@ -827,9 +869,9 @@ them.
 real-time monitoring of the microgrid was seen as beneficial for operators by
 expert stakeholders, the tool does not support real-time immersive analytics.
 
-\section{Collaboration Tools and Techniques}
-
-\section{Interaction Tools and Techniques}
+\section{Immersive Analytics Tools and Techniques}
+\subsection{Collaboration Tools and Techniques}
+\subsection{Interaction Tools and Techniques}
 
 \noindent Interaction is an important component of information visualization. It has even been argued that it provides
 a way to overcome the limits of representation and augment a user's cognition \cite{interaction_infovis}.
@@ -840,9 +882,9 @@ a way to overcome the limits of representation and augment a user's cognition \c
 categories: \textbf{Select}. User marks something as interesting; \textbf{Explore}. User instructs the
 infovis system to represent different/more data (e.g., a different subset of the data);
 \textbf{Reconfigure}. User instructs the infovis system to change the arrangement/perspective of the
-representation; \textbf{Encode}. User changes visual properties of datapoints; \textbf{Abstract/Elaborate}.
-User requests more or less information about datapoints (e.g., a tooltip); \textbf{Filer}. User instructs the
-system to show datapoints based on some criteria; \textbf{Connect}. User instructs the system to show related
+representation; \textbf{Encode}. User changes visual properties of data-points; \textbf{Abstract/Elaborate}.
+User requests more or less information about data-points (e.g., a tooltip); \textbf{Filer}. User instructs the
+system to show data-points based on some criteria; \textbf{Connect}. User instructs the system to show related
 items. Some of these interactions can be combined together in a single interaction tool (e.g., \textit{Select}
 and \textit{Connect} in \textit{linked brushing} tool).
 
@@ -852,16 +894,11 @@ and \textit{Connect} in \textit{linked brushing} tool).
 experience. This is especially the case for data manipulation tasks where, for instance, a user may be
 expected to enter a textual information based on which a dataset is filtered.
 
-
-\subsection {Speech-Based Interaction Methods}
-
 \noindent Although researchers have experimented with speech interaction techniques
 \cite{wizualization_toolkit}, these methods suffer from limitations concerning privacy, noise sensitivity (
 e.g., in in-place collaborative environments), speech errors correction, cognitive interference, and
 inappropriateness in certain environments \cite{limits_of_speech_recognition}.
 
-\subsection {Input-Device-Based Interaction Methods}
-\subsubsection {Text Input}
 \noindent Researchers experimented with the use of physical keyboards and touchscreens for text input
 in VR. Particularly, Jens et al. \cite{keyboard_vs_touchscreen} provided an analysis conducted with 24
 participants that compared desktop keyboard performance with that of touchscreen. Results have proven that
@@ -870,8 +907,6 @@ users retain more of their typing speed when using desktop keyboards.
 These results are consistent with previous findings where standard physical keyboards
 (QWERTY layout) have consistently scored the highest average words-per-minute (\textit{WPM}) speed and the
 lowest average error rate compared to other types of physical input methods \cite{physical_text_entry_comparison}.
-
-HAND RENDERING here please
 
 \noindent However, a conventional physical keyboard requires a stationary VR environment which is not necessarily the
 case for IA environments. To address this issue, virtual keyboards are suggested as an alternative. Kern et
@@ -901,16 +936,7 @@ with both input methods being considerably faster in VR than in VST AR.
 methods seems to be lacking. We believe such research is important in giving potentially new insights about
 improving user typing speed and user experience.
 
-\section{Navigation Tools and Techniques}
-
-
-
-
-\section{Transition and Animation Tools and Techniques}
-
-TODO: add introduction with suitable references for importance of animations
-and cross-virtuality transitions.
-\subsection{HybridAxes Tool}
+\section{Transition Tools and Techniques}
 Mohammad et al. introduced HybridAxes \cite{hybridaxes_tool}; an extension of
 IATK toolkit that allows for a smooth interoperability between 2D desktop
 visualizations and immersive reality experiences (\autoref{fig:hybridaxes}).
@@ -940,9 +966,9 @@ Keeping the same values for the visualization channels, if possible, when
 transitioning a visualization between the two experiences is also stated as
 a core design goal. HybridAxes should also provide support for synchronized
 cross-virtuality brushing and linking. For instance, a user may have a tabular
-data on a 2D desktop alongside a 3D scatterplot in the immersive environment.
-When highlighting an entry in the table, associated datapoints in the
-scatterplot should also be highlighted. HybridAxes, aims to also favor desktop
+data on a 2D desktop alongside a 3D scatter-plot in the immersive environment.
+When highlighting an entry in the table, associated data-points in the
+scatter-plot should also be highlighted. HybridAxes, aims to also favor desktop
 for interactions that require the detailed manipulation of text entries. The
 choice of interaction method, either through free-hand or
 controller-based interactions, is given to the user.
@@ -959,7 +985,7 @@ visualizations is superior to the suggested workflow. Our main argument is
 that this way all visualizations are established within one framework - Unity -
 which therefore allows for a more versatile, accessible and easier-to-use
 toolkit. The tool provides support for the same set of visualizations as IATK
-mainly: Scatterplots, Parrallel Coordinate Plots and Bar Charts.
+mainly: Scatter plots, Parallel Coordinate Plots and Bar Charts.
 
 \medskip
 
@@ -974,14 +1000,14 @@ experience. However, no comparative performance measurements were provided.
 	      or the controller(s) (\autoref{fig:hybridaxes} (1, 2, 3)).
 	\item \textbf{Push visualizations from the immersive environment back to the 2D
 		      desktop} (\autoref{fig:hybridaxes} (4, 5, 6)).
-	\item \textbf{Brush datapoints on either side of the environments and see their
+	\item \textbf{Brush data-points on either side of the environments and see their
 		      counterparts in the other side get highlighted}.
 \end{itemize}
 
 
 \noindent The authors hypothesize that enabling visual analytics users to
 smoothly context switch between a 2D screen and 3D immersive experience could
-improve their sensemaking abilities. A limited study of the usefulness of the
+improve their sense-making abilities. A limited study of the usefulness of the
 tool has been conducted on just four participants where they analyzed the data
 in three scenarios: 1) just using 2D desktop screen, 2) using a hybrid
 desktop/AR system and 3) just using the AR system. The authors claim that the
@@ -996,7 +1022,7 @@ toolkits have, to some degree, properly addressed a set of important
 challenges. These challenges include:
 
 \begin{itemize}
-	\item \textbf{Uniform Workflow} - Proposed tookits managed to provide
+	\item \textbf{Uniform Workflow} - Proposed toolkits managed to provide
 	      uniform streamlined workflows that made it easier for users to make
 	      IA experiences.
 	\item \textbf{Ease-of-use} - IA community provided tools for both: novice
@@ -1004,9 +1030,9 @@ challenges. These challenges include:
 	      to allow them to expand the toolkit. The community also experimented
 	      a lot with high-level grammars.
 	\item \textbf{Representation} - Community provided 2D and 3D visualizations
-	      for common plots such as: scatterplots, bar charts and parallel
+	      for common plots such as: scatter-plots, bar charts and parallel
 	      coordinates plots. In particular, visual representation of connected
-	      datapoints between plots was also focused on.
+	      data-points between plots was also focused on.
 	\item \textbf{Interaction} - Community managed to provide interaction tools
 	      that handle, among other things, repositioning, resizing, selection,
 	      details-on-demand, brushing and filtering. These are essential for
@@ -1038,8 +1064,8 @@ is still lacking:
 	      assumptions about the input data as minimal as possible. In
 	      particular, real-time data should be supported. Moreover, methods for
 	      efficiently updating visualizations should be adopted as well (e.g.,
-	      when a new datapoint is received, when visual characteristics of some
-	      datapoints change, etc.).
+	      when a new data-point is received, when visual characteristics of some
+	      data-points change, etc.).
 	\item \textbf{In-depth Performance Statistics} - Community should focus
 	      more on addressing the core challenge of performance. Convincing and extensive
 	      performance statistics are still lacking.
@@ -1077,7 +1103,7 @@ open-standard XR technologies. In particular, we do firmly believe that an open-
 i.e., provides a permissive free software license - tool built on top of the open-standard OpenXR API can
 mimic the success of conventional 2D visualization libraries such as D3.js \cite{d3_js}. Unfortunately, we
 have not come across such a framework and the closest to that in terms of reliance on open-standard
-technologies would be VRIA \cite{vria_framework}.
+technologies would be VRIA and Wizualization toolkits \cite{vria_framework, wizualization_toolkit}.
 
 \section{Conclusion}
 We presented an overview of the platforms, tools and prototypes in the last six years which can be used to
