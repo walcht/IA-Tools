@@ -108,10 +108,10 @@ devices (a keyboard, a mouse or a controller) to drive XR headset and
 controllers in the Unity scene view. This may be useful for debugging on a
 wide range of XR devices without having to actually try them. Unity also
 benefits from open-source external XR packages such as the Mixed Reality
-Toolkit for Unity (MRTK)
-\footnote{https://github.com/MixedRealityToolkit/MixedRealityToolkit-Unity}
-which is designed to further accelerate cross-platform MR development in Unity.
+Toolkit for Unity (MRTK) \cite{mrtk:repo} which is designed to further accelerate cross-platform MR development in Unity.
+
 \subsection{Unreal Engine}
+
 Unreal Engine is an industry-standard software for creating
 hyper-photorealistic 3D/2D experiences. Thanks to its unified workflow across
 numerous XR vendors such as Oculus, Microsoft, Vive, and PlayStation, it
@@ -126,6 +126,20 @@ plugins as is the case with Vuforia.
 \subsection{Comparison}
 \autoref{table:1} provides a comparison between the previously discussed
 platforms in terms of support for vendor-specific SDKs and a set of features.
+
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width=\columnwidth]{dxr_toolkit_00}
+    \caption{On the left is a declarative specification file in JSON format. On the right is the resulting
+    scatterplot visualization. In the \textit{data} attribute, the source input data is provided. The mark
+    type is the built-in type \textit{cube}. Five visualization channels (or visual encodings) are used:
+    two nominal data dimensions mapped to \textit{X} and \textit{Y} positions; ordinal time dimension mapped
+    to \textit{Z} position; \textit{color} mapped to quantitative weight dimension; and \textit{size}
+    represents the quantitative weight dimension.
+    Image is taken from \cite{dxr:repo} and is available in the public domain.}
+    \label{fig:dxr_toolkit_00}
+\end{figure}
+
 \begin{table*}
 	\centering
 
@@ -182,36 +196,65 @@ support for multiple major XR devices.
 
 \subsection{DXR Toolkit}
 
-Sicat et al. proposed DXR \cite{dxr_toolkit}; an IA toolkit built on top of Unity
-that allows fast prototyping and iteration for non-experienced users; i.e.
-users with no or little programming knowledge in XR and Unity.
-Alongside the data input, DXR takes a specification file written in JavaScript
-Object Notation (hereafter JSON) from which visualisations are created.
-The specification file is described in Vega-Lite declarative grammar \cite{vega_lite}
-(only what should be achieved has to be provided, not how) making it suitable
-for users with no programming experience to rapidly realise immersive
-visualisations. This configuration file can be edited in a separate text editor or through
-the use of a GUI with pre-configured set of parameters. DXR also provides
-built-in specification templates for common visualisations such as: Scatter
-plots and bar charts. This further extends the scope of users to include
-those without any technical experience. Although the authors claim that DXR
-provides suitable flexibility, the scope of that flexibility seems to be
-limited to providing, among other things, custom graphical markers, custom
-visualization channels - i.e. a visualisation parameter affected by a
-data dimension - and other visualisation-type specific properties. That limits users to a
-templated and common set of visualisations such as scatter plots, bar charts
-and radial bars. There is also no mention of real-time data support thus
-limiting the use case of DXR to offline data only.
+\noindent Sicat et al. proposed \textit{DXR} \cite{dxr_toolkit}; an open-source \cite{dxr:repo} IA toolkit
+built on top of Unity. The toolkit provides fast prototyping and iteration for non-experienced users, i.e.,
+users with little or no programming knowledge in XR and Unity. DXR targets AR/VR devices and provides highly
+customizable datapoints (hereafter referred to as \textit{marks}). 
 
-\smallskip
+\noindent The core design goals and features of DXR include:
+\begin{itemize}
+    \item \textbf{Authoring Using Vega-Lite-like Declarative Grammar} - Alongside the data input, DXR takes a
+    specification file written in JavaScript Object Notation (hereafter \textit{JSON}) from which
+    visualisations are created (\autoref{fig:dxr_toolkit_00}). The specification file is described in Vega-Lite declarative grammar \cite{vega_lite} - i.e., only what should be
+    achieved has to be provided, not how. Therefore it is suitable for users with no programming experience to
+    easily and rapidly realize IA experiences.
+    \item \textbf{Providing Fast Idea-to-prototype Process} - DXR generates visualisations from the
+    specification file at runtime. This allows for \textit{in-situ} authoring, i.e., during runtime while
+    experiencing the immersive experience.
+    \item \textbf{Providing Customizable Graph Marks} - A visualization object in DXR is a collection of
+    Unity GameObjects, i.e., a Unity-specific entity that encapsulates an object's representation and its
+    behaviour. The visualization properties of these GameObjects (e.g., color, size and rotation) are mapped
+    to input data dimensions (hereafter we refer to such a mapping as a \textit{visualization channel}).
+    This allows for the manipulation of data-points using standard Unity plugins which in turn results in
+    extensive data-point customizability.
+    \item \textbf{Providing Reusable Templates} - DXR also provides ready-to-use specification templates for
+    common visualisations such as scatter plots and bar charts. This expands the scope of users to include
+    those with little technical experience.
+	\item \textbf{Providing a GUI for in-situ Authoring} - On top of the specification file, DXR also
+    provides an Graphical User Interface (hereafter GUI) for an even easier and more templated in-situ
+        authoring experience \autoref{fig:dxr_gui}. This further broadens the range of users to include those with no technical knowledge.
+\end{itemize}
 
-\noindent As the authors have explicitly mentioned, DXR is meant for
-prototyping and exploring designs, it is not designed to handle visualisations
-of large datasets. On HoloLens, for datasets with more than approximately
-a thousand item, suboptimal - less that 60 frames per second (hereafter FPS) -
-performance has been observed. Nonetheless, the authors argue that DXR can still
-be useful for quickly and cheaply prototyping large dataset designs before
-moving to specialized, optimized and detailed implementations.
+\medskip
+
+\noindent As the authors have explicitly mentioned, DXR is meant for prototyping and exploring designs, it is
+not designed to handle visualisations of large datasets. On HoloLens, for datasets with more than
+approximately a thousand item, suboptimal - i.e., less that 60 frames per second (hereafter FPS) -
+performance has been observed. Nonetheless, the authors argue that DXR can still be useful for quickly and
+cheaply prototyping large dataset designs before moving to more specialized and optimized implementations.
+
+\medskip
+
+\noindent Although DXR targets a wide range of users, the scope of its flexibility seems to be limited to
+providing, among other things, custom graphical markers and custom visualization channels. That limits users
+to a templated common set of visualisations such as scatter plots, bar charts and radial bars. There was also
+no indication that DXR supports real-time data therefore limiting its usecase to offline data models only.
+
+\noindent Although DXR provides a GUI to target absolute beginners, the initial setup still requires some
+manipulation with the Unity editor. This in turn requires a Unity installation and a basic understand of the
+Unity GUI. This could've been avoided by providing an initial runtime GUI where users can select a
+specification file using a file browser in runtime or easily select a template from the GUI.
+
+\noindent Moreover, further developments with new devices may be difficult to implement due to DXR's source
+code not receiving any updates for more than six years \cite{dxr:repo}.
+
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width=\columnwidth]{dxr_gui}
+    \caption{DXR GUI only allowing modification of the basic properties of the visualization specification.
+    Image is taken from \cite{dxr:repo} and is available in the public domain.}
+    \label{fig:dxr_gui}
+\end{figure}
 
 \subsection{IATK Toolkit}
 Maxime et al. introduced IATK \cite{iatk_toolkit}; an open-source
@@ -512,8 +555,9 @@ better documented, and proven by the community \footnote{https://docs.unity3d.co
 Unfortunately, these tools rely on Csharp for their logic which if adopted, the unified programming model is
 no longer satisfied. Another concern is that PowerUI has
 been deprecated from the Unity Asset store and the open-source GitHub repository has not been active, except
-for a single text file change, for more than seven years \footnote{https://github.com/Kulestar/powerui}. We
-therefore argue for relaxing the constraint of a unified programming model in favor of a simpler 
+for a single text file change, for more than seven years \footnote{https://github.com/Kulestar/powerui}.
+This may result in making further developments with new devices/software more difficult to implement.
+We therefore argue for relaxing the constraint of a unified programming model in favor of a simpler 
 technology-stack and reliance on established built-in tools.
 
 \smallskip
@@ -536,6 +580,12 @@ largely unanswered.
 researches. We believe that gathering feedback from a wide range of users, both client-side users and
 developers, is important in determining the validity of the claimed characteristics of the toolkit (e.g.,
 ease of usability, ease of customizability, etc.).
+
+\subsection{Wizualization Toolkit}
+\noindent Andreas et al. proposed Wizualization \cite{wizualization_toolkit}; an open-source \footnote{https://github.com/Wizualization/wizualization}
+toolkit with a heavy focus on state-of-the-art multimodal speech, gesture, and touch interaction techniques.
+Similar to VRIA,
+
 
 \subsection{Comparison}
 
@@ -781,11 +831,80 @@ expert stakeholders, the tool does not support real-time immersive analytics.
 
 \section{Interaction Tools and Techniques}
 
-Interaction is an important component of information visualization. It has even
-been argued that it provides a way to overcome the limits of representation and
-augment a user's cognition \cite{interaction_infovis}.
+\noindent Interaction is an important component of information visualization. It has even been argued that it provides
+a way to overcome the limits of representation and augment a user's cognition \cite{interaction_infovis}.
+
+\smallskip
+
+\noindent In the field of information visualization (\textit{Infovis}), interactions have been divided into seven
+categories: \textbf{Select}. User marks something as interesting; \textbf{Explore}. User instructs the
+infovis system to represent different/more data (e.g., a different subset of the data);
+\textbf{Reconfigure}. User instructs the infovis system to change the arrangement/perspective of the
+representation; \textbf{Encode}. User changes visual properties of datapoints; \textbf{Abstract/Elaborate}.
+User requests more or less information about datapoints (e.g., a tooltip); \textbf{Filer}. User instructs the
+system to show datapoints based on some criteria; \textbf{Connect}. User instructs the system to show related
+items. Some of these interactions can be combined together in a single interaction tool (e.g., \textit{Select}
+and \textit{Connect} in \textit{linked brushing} tool).
+
+\smallskip
+
+\noindent Alongside these IA-specific interactions, text input can be an important aspect of a good IA
+experience. This is especially the case for data manipulation tasks where, for instance, a user may be
+expected to enter a textual information based on which a dataset is filtered.
+
+
+\subsection {Speech-Based Interaction Methods}
+
+\noindent Although researchers have experimented with speech interaction techniques
+\cite{wizualization_toolkit}, these methods suffer from limitations concerning privacy, noise sensitivity (
+e.g., in in-place collaborative environments), speech errors correction, cognitive interference, and
+inappropriateness in certain environments \cite{limits_of_speech_recognition}.
+
+\subsection {Input-Device-Based Interaction Methods}
+\subsubsection {Text Input}
+\noindent Researchers experimented with the use of physical keyboards and touchscreens for text input
+in VR. Particularly, Jens et al. \cite{keyboard_vs_touchscreen} provided an analysis conducted with 24
+participants that compared desktop keyboard performance with that of touchscreen. Results have proven that
+users retain more of their typing speed when using desktop keyboards.
+
+These results are consistent with previous findings where standard physical keyboards
+(QWERTY layout) have consistently scored the highest average words-per-minute (\textit{WPM}) speed and the
+lowest average error rate compared to other types of physical input methods \cite{physical_text_entry_comparison}.
+
+HAND RENDERING here please
+
+\noindent However, a conventional physical keyboard requires a stationary VR environment which is not necessarily the
+case for IA environments. To address this issue, virtual keyboards are suggested as an alternative. Kern et
+al. \cite{tap_vs_word_gesture_keyboards} provided a user evaluation with 64 participants, the majority of
+which are students, to compare between contact-based mid-air virtual tap and swipe keyboards for
+non-stationary VR and video see-through (VST) AR (\autoref{fig:swipe_keyboard}). The study reported a
+significantly higher user experience ratings for the tap method in both non-stationary VR and VST AR. It also
+reported that the type of XR display (e.g., VR, VST AR, etc.) significantly influences typing performance
+with both input methods being considerably faster in VR than in VST AR.
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{swipe_keyboard}
+    \caption{Example of a virtual swipe keyboard in a VR context. The user intends to enter the German word
+    \textit{deutsch}. To do so, they \textit{swipe} starting from the letter \textit{d} through all
+    intermediate letters and ending the swipe at the letter \textit{h}. By using an error correction
+    algorithm and a language model, the intended word is guessed. Image is taken
+    from\protect\footnotemark and is available in the public domain.}
+    \label{fig:swipe_keyboard}
+\end{figure}
+
+\footnotetext{https://www.youtube.com/watch?v=qxsF2XDHLag}
+
+\medskip
+
+\noindent To the best of our knowledge, research on the influence of haptic feedback for virtual input
+methods seems to be lacking. We believe such research is important in giving potentially new insights about
+improving user typing speed and user experience.
 
 \section{Navigation Tools and Techniques}
+
+
+
 
 \section{Transition and Animation Tools and Techniques}
 
@@ -844,9 +963,8 @@ mainly: Scatterplots, Parrallel Coordinate Plots and Bar Charts.
 
 \medskip
 
-\noindent In terms of performance, the authors claim that anticipating user
-actions has resulted in smoother experience. However, no comparative
-performance measurements were provided to back this claim.
+\noindent In terms of performance, the authors claim that anticipating user actions has resulted in smoother
+experience. However, no comparative performance measurements were provided.
 
 \smallskip
 
@@ -904,8 +1022,9 @@ challenges. These challenges include:
 	      provided.
 	\item \textbf{Low-level API for Extensions} - In most discussed toolkits,
 	      a low-level API allowing for the extension of functionalities is
-	      provided. This has allowed newer toolkits to build upon a
-	      customized version of a previous one \cite{ragrug_toolkit}.
+	      provided. This has allowed newer toolkits and prototypes to build upon a
+          customized version of a previous toolkit
+          (e.g., \cite{ragrug_toolkit,fiesta_prototype,hybridaxes_tool}).
 \end{itemize}
 
 \noindent Although the aforementioned toolkits and prototypes prove that the
@@ -922,16 +1041,16 @@ is still lacking:
 	      when a new datapoint is received, when visual characteristics of some
 	      datapoints change, etc.).
 	\item \textbf{In-depth Performance Statistics} - Community should focus
-	      more on addressing the core challenge of performance. Convincing
+	      more on addressing the core challenge of performance. Convincing and extensive
 	      performance statistics are still lacking.
 	\item \textbf{Simple Technology Stack} - Community should focus more on
 	      simplifying the technology stack and avoiding characteristics that
-	      may hinder the wide adoption of the IA toolkit (e.g., usage of many
+	      may hinder the wide adoption of IA toolkits (e.g., usage of many
 	      tools from different vendors, usage of no-longer-maintained third
 	      party tools, usage of expensive or hard-to-get hardware, etc.).
 	\item \textbf{Usage of Open-Standard Technologies} - Community should focus more on
-	      using open-standard framework/libraries. We do believe in particular
-	      that the community should experiment with the low-level XR library
+	      using open-standard frameworks/libraries. Particularly, we do believe 
+	      that the community should experiment more with the low-level XR library
 	      OpenXR instead of game-development frameworks.
 	\item \textbf{Clear Licensing Terms} - For a successful wide adoption,
 	      licensing terms for toolkits should be clarified and complex licenses
@@ -939,42 +1058,34 @@ is still lacking:
 	\item \textbf{Extensive Customization Support} - Community has, to some degree,
 	      successfully addressed the customizability aspect of IA toolkits.
 	      Nonetheless, we argue in favor of providing a low-level API that
-	      allows for a wider range of configuration.
+	      allows for a wider range of configurations.
 	\item \textbf{Built-in Collaboration Support} - Community should work more towards
-	      adding built-in collaboration support (i.e., treat collaboration as a first
-	      class citizen). Moreover, aspects of collaboration should be customizable (e.g., user avatars, shared tools, etc.).
+	      adding built-in collaboration support (i.e., treat collaboration as a first-class citizen).
+          Moreover, aspects of collaboration should be customizable (e.g., user avatars, shared tools, etc.).
 	\item \textbf{Portability to Conventional 2D Screens} - Community should
 	      work more towards adding support, on top of XR technologies, to
 	      conventional 2D screens. We believe this is important since XR
-	      devices are still not yet widely adopted.
-	\item \textbf{Portability to the Web} - Since web-based conventional
-	      visualization libraries have seen a wide adoption, the community
-	      should work more on adding web support.
-	\item \textbf{In-situ Authoring Tools} - Community should work more on
-	      adding in-place (i.e., in real use-case environment) authoring tools.
+          devices are still not yet as widely adopted as conventional 2D displays.
+	\item \textbf{Portability to the Web} - Since web-based conventional visualization libraries have seen a
+          wide adoption (e.g, \cite{d3_js}), the community should work more on adding web support.
+	\item \textbf{In-situ Authoring Tools} - Community should work more on adding in-place (i.e., in real
+          use-case environment) authoring tools for easier and faster prototyping.
 \end{itemize}
 
-\textbf{API with Bindings to High-level Programming Languages} - The
-bindings should be good
-
-Therefore we argue in favor of a visualization-tailored tool that is built on
-top of open-standard XR technologies. We do particularly firmly believe that
-an open-source and free-to-use - i.e. provides a permissive free software
-license - tool built on top of the open-standard OpenXR API can mimic the
-success of conventional 2D visualization libraries such as D3.js.
-Unfortunately, we have not come across such a framework and the closest to that
-in terms of reliance on open-standard technologies would be VRIA.
+\noindent We do therefore argue in favor of a visualization-tailored tool that is built on top of
+open-standard XR technologies. In particular, we do firmly believe that an open-source and free-to-use -
+i.e., provides a permissive free software license - tool built on top of the open-standard OpenXR API can
+mimic the success of conventional 2D visualization libraries such as D3.js \cite{d3_js}. Unfortunately, we
+have not come across such a framework and the closest to that in terms of reliance on open-standard
+technologies would be VRIA \cite{vria_framework}.
 
 \section{Conclusion}
-We presented an overview of the platforms, tools and prototypes in the last six
-years which can be used to develop IA experiences. Although IA tools have
-certainly come out of their infancy with several examples of tools addressing
-particular IA challenges well, we have come to the conclusion that there is not
-yet any IA toolkit that has the same level of versatility,
-visualization-tailored, ease-of-use and support of various data inputs and
-streams such as the widely successful 2D visualization libraries like D3.js.
-This is consistent with the latest IA survey from 2021 \cite{survey_of_ia}
-where no tool meeting these criteria was mentioned.
+We presented an overview of the platforms, tools and prototypes in the last six years which can be used to
+develop IA experiences. Although IA tools have certainly come out of their infancy, we have come to the
+conclusion that there is not yet any IA toolkit that has the same level of versatility,
+visualization-tailored, ease-of-use and support of various data inputs and streams such as the widely
+successful 2D visualization libraries like D3.js \cite{d3_js}. This is consistent with the latest IA survey
+from 2021 \cite{survey_of_ia} where there was no mention of any tool that meets these criteria.
 
 \printbibliography
 \end{document}
