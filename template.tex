@@ -37,7 +37,7 @@
 \title{The State-of-Art Platforms and Tools for Immersive Analytical
 Applications Development}
 
-\author{Walid Chtioui\thanks{e-mail: walid.chtioui@ensi-uma.tn}\\ %
+\author{Walid Chtioui\thanks{e-mail: chtiou01@ads.uni-passau.de}\\ %
         \scriptsize University of Passau %
 \and Achraf Hebheb\thanks{e-mail: habhabachref@gmail.com}\\ %
      \scriptsize University of Passau}
@@ -57,8 +57,7 @@ toolkits. For each toolkit we discuss the set of what we think are important fea
 such as the support for collaboration, interactions, real-time data and large datasets. Throughout the paper,
 newly introduced toolkits are compared against previous ones in regards to performance, supported devices,
 accessibility, and ease-of-use. A set of state-of-the-art tools and techniques, which can be used to extend
-aforementioned toolkits, covering collaboration, interaction and
-navigation topics are then provided. We then discuss two IA prototypes that provide
+aforementioned toolkits, covering interaction and transition topics are then provided. We then discuss two IA prototypes that provide
 important insights through user feedback. We have come to the conclusion that,
 although IA toolkits have come out of their infancy, we are still yet to see an
 IA toolkit that provides a unified workflow allowing for versatile
@@ -85,20 +84,20 @@ The latest survey of IA provided an exhaustive survey of IA works from 1991 to 2
 However, to the best of our knowledge, our paper is the first that delves into the technical details about
 extensively used state-of-the-art IA platforms and suggested toolkits. We aim to identity the challenges
 the IA community managed to address and the open challenges that we think are important for IA toolkits
-to mimic the wide adoption of conventional 2D visualisations libraries. In particular, we want to provide
+to mimic the wide adoption of conventional 2D visualization libraries. In particular, we want to provide
 a quick overview of the currently available IA toolkits, what each of them lacks, and propose directions
 to the IA community that we think are worth exploring.
 
 
 \section{Methodology}
 
-\noindent Our main goal is to analyse the literature to give an overview and a comparison of 
+\noindent Our main goal is to analyze the literature to give an overview and a comparison of 
 state-of-the-art IA toolkits and techniques. It is important to note that our objective is \textit{not} to
 include the whole IA literature in the last four to six years. That would be way out of the scope of our
-work. For literature selection, we have only used the \textit{IEEE Xplore Digital Library}. We have filtered
+work. For literature selection, we have only used the \textit{IEEE Xplore Digital Library} search engine. We have filtered
 the search results to only include \textit{Conference} and \textit{Journal} types of papers. We have also filtered
-the publication year to the range 2018 - 2024. We used the search terms \textit{immersive analytics},
-\textit{immersive visualisation} which yielded 260, 1826 respectively. Results were sorted by
+the publication year to the range 2018 - 2024. We used the search terms: \textit{immersive analytics},
+\textit{immersive visualization} which yielded 260, 1826 search results respectively. Results were sorted by
 \textit{Relevance} and for each result we only went through the first 100 papers and picked what we thought
 were relevant papers based on the title and the abstract. We then skimmed through these papers to Further
 reduce their numbers by focusing more on toolkits and tools rather than prototypes.
@@ -110,7 +109,7 @@ allowing developers to create XR applications for a plethora of devices. Since
 IA experiences and AR/VR gaming applications share a lot of similarities, game
 engines provide excellent support for developing IA experiences. Two game
 engines are considered; Unity and Unreal Engine. A particular focus is given
-to Unity due to its wide adoption for XR applications.
+to Unity due to its wide adoption for XR applications development.
 
 \subsection{Unity}
 Unity has a wide adoption in the world of XR thanks to its unified workflow
@@ -135,11 +134,9 @@ Toolkit for Unity (MRTK) \cite{mrtk:repo} which is designed to further accelerat
 
 \subsection{Unreal Engine}
 
-Unreal Engine is an industry-standard software for creating
-hyper-photorealistic 3D/2D experiences. Thanks to its unified workflow across
-numerous XR vendors such as Oculus, Microsoft, Vive, and PlayStation, it
-provides the required assets to develop XR experiences This engine, like Unity,
-comes with the core comprehensive collection of XR SDKs such as Google's
+Unreal Engine is an industry-standard software for creating hyper-photorealistic 3D/2D experiences. Thanks to its unified workflow across
+numerous XR vendors such as Oculus, Microsoft, Vive, and PlayStation, it provides the required assets
+to develop XR experiences. This engine, like Unity, comes with the core comprehensive collection of XR SDKs such as Google's
 ARCore, Apple's ARkit, Magic Leap Microsoft's HoloLens, OpenXR, and Oculus.
 However, Unreal Engine comes with a  less-than-ideal XR documentation relative
 to Unity. This documentation does not provide comprehensive manuals for certain
@@ -212,7 +209,7 @@ platforms in terms of support for vendor-specific SDKs and a set of features.
 
 \section{Toolkits and Frameworks}
 
-The term toolkit refers to development environments that are tailor-made for
+The term \textit{toolkit} refers to development environments that are tailor-made for
 IA experience development purposes. They provide, among other things,
 high-level tools for authoring visualizations, built-in interactions and
 support for multiple major XR devices.
@@ -222,16 +219,26 @@ support for multiple major XR devices.
 \noindent Sicat et al. proposed \textit{DXR} \cite{dxr_toolkit}; an open-source \cite{dxr:repo} IA toolkit
 built on top of Unity. The toolkit provides fast prototyping and iteration for non-experienced users, i.e.,
 users with little or no programming knowledge in XR and Unity. DXR targets AR/VR devices and provides highly
-customizable data-points (hereafter referred to as \textit{marks}). 
+customizable data-points (hereafter referred to as \textit{marks}).
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{dxr_gui}
+    \caption{DXR GUI allowing modification of the basic properties of the visualization specification file.
+    Image from \cite{dxr:repo} and is available in the public domain.}
+	\label{fig:dxr_gui}
+\end{figure}
+
+\medskip
 
 \noindent The core design goals and features of DXR include:
 \begin{itemize}
     \item \textbf{Authoring Using Vega-Lite-like Declarative Grammar} - Alongside the data input, DXR takes a
     specification file written in JavaScript Object Notation (hereafter \textit{JSON}) from which
-    visualisations are created (\autoref{fig:dxr_toolkit_00}). The specification file is described in Vega-Lite declarative grammar \cite{vega_lite} - i.e., only what should be
+    visualizations are created (\autoref{fig:dxr_toolkit_00}). The specification file is described in Vega-Lite declarative grammar \cite{vega_lite} - i.e., only what should be
     achieved has to be provided, not how. Therefore it is suitable for users with no programming experience to
     easily and rapidly realize IA experiences.
-    \item \textbf{Providing Fast Idea-to-prototype Process} - DXR generates visualisations from the
+    \item \textbf{Providing Fast Idea-to-prototype Process} - DXR generates visualizations from the
     specification file at runtime. This allows for \textit{in-situ} authoring, i.e., during runtime while
     experiencing the immersive experience.
     \item \textbf{Providing Customizable Graph Marks} - A visualization object in DXR is a collection of
@@ -241,17 +248,17 @@ customizable data-points (hereafter referred to as \textit{marks}).
     This allows for the manipulation of data-points using standard Unity plugins which in turn results in
     extensive data-point customizability.
     \item \textbf{Providing Reusable Templates} - DXR also provides ready-to-use specification templates for
-    common visualisations such as scatter plots and bar charts. This expands the scope of users to include
+    common visualizations such as scatter plots and bar charts. This expands the scope of users to include
     those with little technical experience.
 	\item \textbf{Providing a GUI for in-situ Authoring} - On top of the specification file, DXR also
     provides an Graphical User Interface (hereafter GUI) for an even easier and more templated in-situ
-        authoring experience. This further broadens the range of users to include those with no technical knowledge.
+    authoring experience (\autoref{fig:dxr_gui}). This further broadens the range of users to include those with no technical knowledge.
 \end{itemize}
 
 \medskip
 
 \noindent As the authors have explicitly mentioned, DXR is meant for prototyping and exploring designs, it is
-not designed to handle visualisations of large datasets. On HoloLens, for datasets with more than
+not designed to handle visualizations of large datasets. On HoloLens, for datasets with more than
 approximately a thousand item, suboptimal - i.e., less that 60 frames per second (hereafter FPS) -
 performance has been observed. Nonetheless, the authors argue that DXR can still be useful for quickly and
 cheaply prototyping large dataset designs before moving to more specialized and optimized implementations.
@@ -260,13 +267,17 @@ cheaply prototyping large dataset designs before moving to more specialized and 
 
 \noindent Although DXR targets a wide range of users, the scope of its flexibility seems to be limited to
 providing, among other things, custom graphical markers and custom visualization channels. That limits users
-to a templated common set of visualisations such as scatter plots, bar charts and radial bars. There was also
+to a templated common set of visualizations such as scatter plots, bar charts and radial bars. There was also
 no indication that DXR supports real-time data therefore limiting its usecase to offline data models only.
+
+\medskip
 
 \noindent Although DXR provides a GUI to target absolute beginners, the initial setup still requires some
 manipulation with the Unity editor. This in turn requires a Unity installation and a basic understand of the
-Unity GUI. This could've been avoided by providing an initial runtime GUI where users can select a
+Unity GUI. This could have been avoided by providing an initial runtime GUI where users can select a
 specification file using a file browser in runtime or easily select a template from the GUI.
+
+\medskip
 
 \noindent Moreover, further developments with new devices may be difficult to implement due to DXR's source
 code not receiving any updates for more than six years \cite{dxr:repo}.
@@ -319,8 +330,8 @@ approach to provide a performance reference point.
 	\centering
 	\includegraphics[width=\columnwidth]{iatk}
 	\caption[Caption for IATK]{IATK supported visualization types. (1) 3D
-		connected dots. (2) 3D bar chart. (3) 3D Scatter plot. (4, 7) 3D
-		Scatter plot matrix. (5) Parallel Coordinates Plots. (6) 2D Scatter plot
+		connected dots. (2) 3D bar chart. (3) 3D scatter plot. (4, 7) 3D
+		scatter plot matrix. (5) Parallel Coordinates Plots. (6) 2D scatter plot
         matrix. (8) Linked visualizations. The images are from \cite{iatk:repo}
 		and are in the public domain.}
 	\label{fig:iatk_visualizations}
@@ -340,9 +351,9 @@ and efficient at handling large datasets.
 \smallskip
 
 \noindent IATK's high-level GUI provides just a small set of built-in visualization
-types such as a 3D\textbackslash2D scatter plot (\autoref{fig:iatk_visualizations}
+types such as a 3D/2D scatter plot (\autoref{fig:iatk_visualizations}
 (3)), a parallel coordinates plot (\autoref{fig:iatk_visualizations} (5)) or a
-3D\textbackslash2D scatter plot matrix (\autoref{fig:iatk_visualizations} (4, 6, 7)).
+3D/2D scatter plot matrix (\autoref{fig:iatk_visualizations} (4, 6, 7)).
 It also only provides a small set of data-point geometries. To extend these,
 one has to use the provided low-level API which might limit expressiveness for
 non-experienced users.
@@ -351,7 +362,7 @@ non-experienced users.
 
 \noindent The authors did not mention any support for neither real-time data
 visualization nor local or remote collaboration. It is also worth mentioning
-that for VR, only Scatter plot visualization type is supported. This greatly
+that for VR, only scatter plot visualization type is supported. This greatly
 limits the expressiveness for VR users.
 
 \subsection{VRIA Toolkit}
@@ -522,7 +533,7 @@ runtime interpretation of application logic.
 	      interpretation of application logic which allows designers to modify
 	      every aspect of the system without having to shut it down. To address
 	      the lack of in-situ authoring from IATK, The authors make use of
-	      PowerUI \footnote{https://github.com/Kulestar/powerui}, an
+          PowerUI \cite{powerui}, an
 	      open-source JavaScript extension for Unity that allows for runtime UI
 	      authoring using CSS, HTML and JavaScript.
 \end{itemize}
@@ -533,7 +544,7 @@ runtime interpretation of application logic.
 	\caption[Caption for RagRug]{RagRug stack. (1) Data is acquired from IoT
 		sensors using MQTT. (2) Data filtering. (3) Real-time data is sent to
 		IATK as a response to a query. (4) Visualizations are
-		rendered/updated in Unity.}
+        rendered/updated in Unity. Image is taken from \cite{ragrug_toolkit}.}
 	\label{fig:ragrug_stack}
 \end{figure}
 
@@ -542,16 +553,16 @@ runtime interpretation of application logic.
 \noindent RagRug consists of two standalone platforms, one for experiencing immersive analytics
 visualizations and interacting with them (referred to as \textit{client}) and one for IoT applications and
 databases (referred to as \textit{hub}). As illustrated in (\autoref{fig:ragrug_stack}) the two
-platforms make use of the widely adopted and lightweight MQTT \footnote{https://mqtt.org/} protocol to
+platforms make use of the widely adopted and lightweight MQTT \cite{mqtt} protocol to
 communicate data and events. Another core design of the toolkit is its heavy reliance on a uniform
-dataflow programming model. To achieve that, the hub makes use of Node-Red \footnote{https://nodered.org/};
+dataflow programming model. To achieve that, the hub makes use of Node-Red \cite{nodered};
 a low-code programming tool for event-driven applications. The client also relies on the dataflow graphs of
 Node-Red. These are provided to the client, alongside other JavaScript runtime dependencies, at
 initialization time. The dataflow model expands the range of potential RagRug users to include those with
 low programming experience. RagRug emphasises on making JavaScript its unified programming language by making
 use of extensions that provide a JavaScript wrapper interface that calls the native interfaces under the hood
-(e.g., PowerUI\footnote{https://powerui.kulestar.com/} which allows for runtime Unity UI authoring using
-JavaScript instead of the native Csharp programming interface). Since the toolkit is event-driven, it
+(e.g., PowerUI \cite{powerui} which allows for runtime Unity UI authoring using
+JavaScript instead of the native C-sharp programming interface). Since the toolkit is event-driven, it
 supports collaborative situated analytics.
 
 
@@ -560,11 +571,11 @@ supports collaborative situated analytics.
 \noindent Although we do understand the importance of having a unified programming model, we find the use of
 PowerUI, for the sole reason of providing a JavaScript interface for authoring Unity runtime UI,
 questionable. Unity provides a variety of built-in runtime UI authoring tools that are mature,
-better documented, and proven by the community \footnote{https://docs.unity3d.com/Manual/UI-system-compare.html}.
-Unfortunately, these tools rely on Csharp for their logic which if adopted, the unified programming model is
+better documented, and proven by the community \cite{unity_ui_compairison}.
+Unfortunately, these tools rely on C-sharp for their logic which if adopted, the unified programming model is
 no longer satisfied. Another concern is that PowerUI has
 been deprecated from the Unity Asset store and the open-source GitHub repository has not been active, except
-for a single text file change, for more than seven years \footnote{https://github.com/Kulestar/powerui}.
+for a single text file change, for more than seven years \cite{powerui}.
 This may result in making further developments with new devices/software more difficult to implement.
 We therefore argue for relaxing the constraint of a unified programming model in favor of a simpler 
 technology-stack and reliance on established built-in tools.
@@ -851,7 +862,7 @@ such as the construction industry. However, the use of a wide range of technolog
 and gadgets makes Uplift a specialized solution that we believe is not yet
 ready for wide deployment. For instance, on top of using Vuforia for tabletop
 tracking, Uplift uses the motion capture Vicon system
-\footnote{https://www.vicon.com/} with a proprietary tracking software and four
+\cite{vicon} with a proprietary tracking software and four
 cameras to track the tangible widgets and the buildings. However,
 since no proof was provided for the usefulness of overlaying information when
 a building model is picked, we question the usage of object tracking for this
@@ -869,14 +880,12 @@ them.
 real-time monitoring of the microgrid was seen as beneficial for operators by
 expert stakeholders, the tool does not support real-time immersive analytics.
 
-\section{Immersive Analytics Tools and Techniques}
-\subsection{Collaboration Tools and Techniques}
-\subsection{Interaction Tools and Techniques}
+\section{Interaction Tools and Techniques}
 
 \noindent Interaction is an important component of information visualization. It has even been argued that it provides
 a way to overcome the limits of representation and augment a user's cognition \cite{interaction_infovis}.
 
-\smallskip
+\medskip
 
 \noindent In the field of information visualization (\textit{Infovis}), interactions have been divided into seven
 categories: \textbf{Select}. User marks something as interesting; \textbf{Explore}. User instructs the
@@ -887,26 +896,28 @@ User requests more or less information about data-points (e.g., a tooltip); \tex
 system to show data-points based on some criteria; \textbf{Connect}. User instructs the system to show related
 items. Some of these interactions can be combined together in a single interaction tool (e.g., \textit{Select}
 and \textit{Connect} in \textit{linked brushing} tool).
-
-\smallskip
-
-\noindent Alongside these IA-specific interactions, text input can be an important aspect of a good IA
+Alongside these IA-specific interactions, text input can be an important aspect of a good IA
 experience. This is especially the case for data manipulation tasks where, for instance, a user may be
 expected to enter a textual information based on which a dataset is filtered.
+
+\medskip
 
 \noindent Although researchers have experimented with speech interaction techniques
 \cite{wizualization_toolkit}, these methods suffer from limitations concerning privacy, noise sensitivity (
 e.g., in in-place collaborative environments), speech errors correction, cognitive interference, and
 inappropriateness in certain environments \cite{limits_of_speech_recognition}.
 
+\medskip
+
 \noindent Researchers experimented with the use of physical keyboards and touchscreens for text input
 in VR. Particularly, Jens et al. \cite{keyboard_vs_touchscreen} provided an analysis conducted with 24
 participants that compared desktop keyboard performance with that of touchscreen. Results have proven that
 users retain more of their typing speed when using desktop keyboards.
-
 These results are consistent with previous findings where standard physical keyboards
 (QWERTY layout) have consistently scored the highest average words-per-minute (\textit{WPM}) speed and the
 lowest average error rate compared to other types of physical input methods \cite{physical_text_entry_comparison}.
+
+\medskip
 
 \noindent However, a conventional physical keyboard requires a stationary VR environment which is not necessarily the
 case for IA environments. To address this issue, virtual keyboards are suggested as an alternative. Kern et
@@ -924,17 +935,15 @@ with both input methods being considerably faster in VR than in VST AR.
     \textit{deutsch}. To do so, they \textit{swipe} starting from the letter \textit{d} through all
     intermediate letters and ending the swipe at the letter \textit{h}. By using an error correction
     algorithm and a language model, the intended word is guessed. Image is taken
-    from\protect\footnotemark and is available in the public domain.}
+    from \cite{swipe_keyboard_yt} and is available in the public domain.}
     \label{fig:swipe_keyboard}
 \end{figure}
-
-\footnotetext{https://www.youtube.com/watch?v=qxsF2XDHLag}
 
 \medskip
 
 \noindent To the best of our knowledge, research on the influence of haptic feedback for virtual input
 methods seems to be lacking. We believe such research is important in giving potentially new insights about
-improving user typing speed and user experience.
+improving user typing speed and user experience in IA environments.
 
 \section{Transition Tools and Techniques}
 Mohammad et al. introduced HybridAxes \cite{hybridaxes_tool}; an extension of
@@ -948,7 +957,7 @@ visualizations and immersive reality experiences (\autoref{fig:hybridaxes}).
 	\includegraphics[width=\columnwidth]{hybridaxes}
 	\caption[Caption for RagRug]{HybredAxes context switch processes. (1, 2, 3)
 		Pulling data/visualization from a 2D screen. (4, 5, 6) Pushing a
-		visualization to a 2D screen from an immersive AR environment.}
+        visualization to a 2D screen from an immersive AR environment. All images are taken from \cite{hybridaxes_tool}. }
 	\label{fig:hybridaxes}
 \end{figure}
 
@@ -976,7 +985,7 @@ controller-based interactions, is given to the user.
 \medskip
 
 \noindent In terms of implementation, HybridAxes adopts CODAP; an open-source
-\footnote{https://codap.concord.org} visual analytics tool, alongside a plugin
+\cite{codap} visual analytics tool, alongside a plugin
 that enables the desktop system to receive commands via a Websocket interface.
 A Node.js-based Websocket server is used to relay the messages between Unity
 and the desktop system. We question the use of these extra tools and frameworks
@@ -985,7 +994,7 @@ visualizations is superior to the suggested workflow. Our main argument is
 that this way all visualizations are established within one framework - Unity -
 which therefore allows for a more versatile, accessible and easier-to-use
 toolkit. The tool provides support for the same set of visualizations as IATK
-mainly: Scatter plots, Parallel Coordinate Plots and Bar Charts.
+mainly: scatter plots, parallel coordinate plots and bar charts.
 
 \medskip
 
@@ -1013,7 +1022,7 @@ in three scenarios: 1) just using 2D desktop screen, 2) using a hybrid
 desktop/AR system and 3) just using the AR system. The authors claim that the
 study results align with their hypothesis. However, neither metrics nor
 sufficient details were provided to prove this claim. Nonetheless, the authors
-mentioned their willingness to perform a more rigorous study in the future.
+mentioned their willingness to perform a more rigorous study in the future \cite{xvcollab}.
 
 \section{Discussion}
 
